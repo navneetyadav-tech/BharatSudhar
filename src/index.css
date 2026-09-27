@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #F4F8FC;
+    color: #172B4D;
+    @apply min-h-screen flex flex-col font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    color: #172B4D;
+    @apply tracking-tight font-bold;
+  }
+}
+
+@layer utilities {
+  /* Modern Civic-Tech Accents */
+  .civic-gradient-text {
+    background: linear-gradient(135deg, #3157A4 0%, #172B4D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .primary-gradient {
+    background: linear-gradient(135deg, #3157A4 0%, #264585 100%);
+  }
+
+  .cta-gradient {
+    background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%);
+  }
+
+  /* Clean Modern Cards & Headers */
+  .glass-card {
+    background: #FFFFFF;
+    border: 1px solid #DCE6F0;
+    box-shadow: 0 2px 8px -1px rgba(23, 43, 77, 0.05);
+  }
+
+  .glass-header {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #DCE6F0;
+  }
+
+  /* Mobile-first touch target utility (min 44px) */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Shimmer effect for skeleton loading */
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(241, 245, 249, 0.8) 0%,
+      rgba(226, 232, 240, 0.9) 50%,
+      rgba(241, 245, 249, 0.8) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
