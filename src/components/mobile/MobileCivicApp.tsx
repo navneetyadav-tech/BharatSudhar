@@ -137,7 +137,17 @@ export function MobileCivicApp() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4F8FC] text-[#172B4D] font-sans flex flex-col selection:bg-[#3157A4] selection:text-white">
+    <div className="min-h-screen bg-[#F4F8FC] text-[#172B4D] font-sans flex flex-col relative overflow-hidden selection:bg-[#3157A4] selection:text-white">
+      {/* Dynamic Civic Background Wallpaper with subtle overlay */}
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-[0.08] transition-all duration-700"
+        style={{ backgroundImage: "url('/images/civic-hero-bg.jpg')" }}
+      />
+      {/* Ambient gradient mesh */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#EBF2FA]/70 via-[#F4F8FC]/85 to-[#F4F8FC] pointer-events-none" />
+      <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-[#3157A4]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-[#22A982]/5 rounded-full blur-3xl pointer-events-none" />
+
       {/* Top Universal App Header */}
       <MobileHeader
         userName={userName}
@@ -148,14 +158,14 @@ export function MobileCivicApp() {
       />
 
       {/* Main Container Wrapper */}
-      <div className={`flex-1 w-full flex justify-center ${isMobileScreen ? 'py-0 px-0' : 'py-6 px-4'}`}>
+      <div className={`flex-1 w-full flex justify-center relative z-10 ${isMobileScreen ? 'py-0 px-0' : 'py-6 px-4'}`}>
         {/* Container Framing: Native phone view on mobile devices, or Frame vs Desktop view on desktop */}
         <div
           className={`w-full transition-all duration-300 ${
             isMobileScreen
               ? 'flex flex-col min-h-full max-w-full'
               : isFrameMode
-              ? 'max-w-md border border-[#DCE6F0] rounded-3xl shadow-card bg-white overflow-hidden min-h-[820px] flex flex-col'
+              ? 'max-w-md border border-slate-200/90 rounded-3xl shadow-2xl bg-white overflow-hidden min-h-[820px] flex flex-col ring-1 ring-slate-900/5'
               : 'max-w-5xl mx-auto flex gap-6'
           }`}
         >

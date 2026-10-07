@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User, LogOut, Check, Smartphone, Monitor } from 'lucide-react';
+import { BharatSudharLogo } from '../common/BharatSudharLogo';
 
 interface MobileHeaderProps {
   userName: string;
@@ -29,43 +30,32 @@ export function MobileHeader({
 
   return (
     <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-[#DCE6F0] shadow-subtle">
-      {/* Top Subtle Civic Ribbon Accent */}
-      <div className="h-0.5 w-full bg-gradient-to-r from-[#3157A4] via-[#FACC15] to-[#22A982]" />
-
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between gap-2">
-        {/* Brand Logo & Slogan - Unified Ashoka Chakra Crest */}
+        {/* Brand Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3157A4] rounded-xl py-0.5 px-1 transition-transform hover:scale-[1.01] shrink-0"
+          className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3157A4] rounded-xl py-0.5 px-1 transition-transform hover:scale-[1.02] shrink-0"
           title="Return to Bharat Sudhar Home"
         >
-          {/* Ashoka Chakra Crest Logo */}
-          <div className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#3157A4] text-white shadow-subtle transition-transform duration-200 group-hover:scale-105 shrink-0">
-            <svg className="w-5 h-5 text-white" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-              <circle cx="50" cy="50" r="42" stroke="currentColor" strokeWidth="5"/>
-              <circle cx="50" cy="50" r="10" fill="currentColor"/>
-              <g stroke="currentColor" strokeWidth="3">
-                <line x1="50" y1="8" x2="50" y2="92" />
-                <line x1="8" y1="50" x2="92" y2="50" />
-                <line x1="20" y1="20" x2="80" y2="80" />
-                <line x1="20" y1="80" x2="80" y2="20" />
-                <line x1="32" y1="12" x2="68" y2="88" />
-                <line x1="12" y1="32" x2="88" y2="68" />
-                <line x1="68" y1="12" x2="32" y2="88" />
-                <line x1="88" y1="32" x2="12" y2="68" />
-              </g>
-            </svg>
-            {/* CTA and Success corner pips */}
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#FACC15] ring-2 ring-white" />
-            <span className="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-[#22A982] ring-2 ring-white" />
-          </div>
+          {/* Civic Tech Emblem Logo */}
+          <BharatSudharLogo size="sm" />
 
-          <div className="flex flex-col">
-            <span className="text-base sm:text-lg font-extrabold text-[#172B4D] tracking-tight leading-none">
-              Bharat<span className="text-[#3157A4]">Sudhar</span>
+          <div className="flex items-center gap-1 sm:gap-1.5">
+            {/* Bharat in Navy Blue */}
+            <span className="text-xl sm:text-2xl font-black font-poppins text-[#0B2545] tracking-tight leading-none drop-shadow-xs">
+              Bharat
             </span>
-            <span className="text-[9px] sm:text-[10px] font-semibold text-[#718096] tracking-wide mt-0.5">
-              Ab Har Nagrik Zimmedaar
+
+            {/* Sudhar with Tiranga Gradient & Leaf Sprout */}
+            <span className="relative text-xl sm:text-2xl font-black font-poppins bg-gradient-to-r from-[#FF671F] via-[#F35D07] to-[#046A38] bg-clip-text text-transparent tracking-tight leading-none">
+              Sudhar
+              {/* Sprout Green Leaf atop Sudhar */}
+              <span className="absolute -top-2.5 -right-3 select-none pointer-events-none">
+                <svg className="w-3 h-3 text-[#2E7D32]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5c0 3 3 5 5 5 1 0 2-.5 3-1.5C13 14 16 11 17 8z" fill="#2E7D32" />
+                  <path d="M12 5c-3 1-5 4-6 6.5" stroke="#81C784" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                </svg>
+              </span>
             </span>
           </div>
         </Link>

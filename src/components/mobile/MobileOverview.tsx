@@ -22,26 +22,39 @@ export function MobileOverview({
 
   return (
     <div className="space-y-5 pb-6">
-      {/* Welcome Banner & Action Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#172B4D] tracking-tight">
-            Welcome, {userName}
-          </h2>
-          <p className="text-xs sm:text-sm text-[#718096] mt-0.5">
-            Your civic dashboard for reporting and tracking local community issues.
-          </p>
-        </div>
+      {/* Welcome Banner with Civic Smart City Background */}
+      <div className="relative overflow-hidden rounded-2xl p-4 sm:p-5 bg-gradient-to-br from-[#274682] via-[#3157A4] to-[#1c3668] text-white shadow-subtle border border-[#3157A4]/30">
+        {/* Civic backdrop texture */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none mix-blend-luminosity scale-105"
+          style={{ backgroundImage: "url('/images/civic-hero-bg.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#172B4D]/60 via-transparent to-[#172B4D]/40 pointer-events-none" />
 
-        {/* Prominent "+ Report a Problem" Button */}
-        <button
-          type="button"
-          onClick={onStartReport}
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FACC15] hover:bg-[#EAB308] active:scale-98 text-[#172B4D] font-bold text-sm shadow-subtle transition-all w-full sm:w-auto shrink-0"
-        >
-          <Plus className="w-4 h-4 stroke-[2.5]" />
-          <span>Report a Problem</span>
-        </button>
+        <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 text-white/95 text-[10px] sm:text-xs font-semibold mb-2 backdrop-blur-md border border-white/20 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
+              Citizen Overview Portal
+            </div>
+            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-tight">
+              Welcome, {userName}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-100/90 mt-1 max-w-md leading-relaxed">
+              Your civic dashboard for reporting and tracking local community issues.
+            </p>
+          </div>
+
+          {/* Prominent "+ Report a Problem" Button */}
+          <button
+            type="button"
+            onClick={onStartReport}
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FACC15] hover:bg-[#EAB308] active:scale-98 text-[#172B4D] font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all w-full sm:w-auto shrink-0"
+          >
+            <Plus className="w-4 h-4 stroke-[2.5]" />
+            <span>Report a Problem</span>
+          </button>
+        </div>
       </div>
 
       {/* 3 Metric Cards with Top Accent Borders */}

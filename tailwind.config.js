@@ -79,6 +79,10 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Poppins', 'Plus Jakarta Sans', 'Outfit', 'sans-serif'],
+        brand: ['Poppins', 'Outfit', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         'subtle': '0 1px 3px 0 rgba(23, 43, 77, 0.04), 0 1px 2px 0 rgba(23, 43, 77, 0.02)',
