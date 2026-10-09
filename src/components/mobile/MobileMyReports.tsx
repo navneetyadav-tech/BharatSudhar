@@ -36,10 +36,10 @@ export function MobileMyReports({
       {/* Top Header */}
       <div className="flex items-center justify-between pt-1">
         <div>
-          <h2 className="text-2xl font-extrabold text-[#172B4D] tracking-tight">
+          <h2 className="text-2xl font-black font-poppins text-[#172B4D] dark:text-white tracking-tight">
             My Reports
           </h2>
-          <p className="text-xs text-[#718096]">
+          <p className="text-xs text-[#718096] dark:text-[#94A3B8] font-medium">
             Real-time tracking of complaints filed with your municipal corporation.
           </p>
         </div>
@@ -47,7 +47,7 @@ export function MobileMyReports({
         <button
           type="button"
           onClick={onStartReport}
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FACC15] hover:bg-[#EAB308] text-[#172B4D] font-bold text-xs shadow-subtle transition-all shrink-0"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FACC15] hover:bg-[#EAB308] text-[#172B4D] font-black text-xs shadow-subtle transition-all shrink-0"
         >
           <Plus className="w-3.5 h-3.5" />
           <span>New Report</span>
@@ -55,14 +55,14 @@ export function MobileMyReports({
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-[#DCE6F0] shadow-subtle">
+      <div className="flex items-center gap-1.5 bg-white dark:bg-[#0F172A] p-1 rounded-xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle">
         <button
           type="button"
           onClick={() => setFilter('all')}
           className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition-all ${
             filter === 'all'
-              ? 'bg-[#EBF2FA] text-[#3157A4] shadow-subtle font-bold'
-              : 'text-[#718096] hover:text-[#172B4D]'
+              ? 'bg-[#EBF2FA] dark:bg-[#1E293B] text-[#3157A4] dark:text-[#60A5FA] shadow-subtle font-bold'
+              : 'text-[#718096] dark:text-[#94A3B8] hover:text-[#172B4D] dark:hover:text-white'
           }`}
         >
           All ({reports.length})
@@ -72,8 +72,8 @@ export function MobileMyReports({
           onClick={() => setFilter('active')}
           className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition-all ${
             filter === 'active'
-              ? 'bg-[#EBF2FA] text-[#3157A4] shadow-subtle font-bold'
-              : 'text-[#718096] hover:text-[#172B4D]'
+              ? 'bg-[#EBF2FA] dark:bg-[#1E293B] text-[#3157A4] dark:text-[#60A5FA] shadow-subtle font-bold'
+              : 'text-[#718096] dark:text-[#94A3B8] hover:text-[#172B4D] dark:hover:text-white'
           }`}
         >
           Active ({reports.filter((r) => r.status !== 'resolved').length})
@@ -83,8 +83,8 @@ export function MobileMyReports({
           onClick={() => setFilter('resolved')}
           className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition-all ${
             filter === 'resolved'
-              ? 'bg-[#EBF2FA] text-[#3157A4] shadow-subtle font-bold'
-              : 'text-[#718096] hover:text-[#172B4D]'
+              ? 'bg-[#EBF2FA] dark:bg-[#1E293B] text-[#3157A4] dark:text-[#60A5FA] shadow-subtle font-bold'
+              : 'text-[#718096] dark:text-[#94A3B8] hover:text-[#172B4D] dark:hover:text-white'
           }`}
         >
           Resolved ({reports.filter((r) => r.status === 'resolved').length})
@@ -93,17 +93,17 @@ export function MobileMyReports({
 
       {/* Reports List */}
       {filteredReports.length === 0 ? (
-        <div className="bg-white rounded-2xl border border-dashed border-[#DCE6F0] p-8 text-center space-y-3 shadow-subtle">
-          <p className="text-xs sm:text-sm text-[#718096]">
+        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-dashed border-[#DCE6F0] dark:border-[#1E293B] p-8 text-center space-y-3 shadow-subtle">
+          <p className="text-xs sm:text-sm text-[#718096] dark:text-[#94A3B8] font-medium">
             No complaints found in this category.
           </p>
           <button
             type="button"
             onClick={onStartReport}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#FACC15] text-[#172B4D] text-xs font-bold hover:bg-[#EAB308] shadow-subtle"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#F4F8FC] dark:bg-[#1E293B] hover:bg-[#EBF2FA] dark:hover:bg-[#334155] text-xs font-bold text-[#3157A4] dark:text-[#60A5FA] border border-[#DCE6F0] dark:border-[#334155] transition-colors"
           >
             <Plus className="w-3.5 h-3.5" />
-            <span>Report a Problem Now</span>
+            <span>File a report now</span>
           </button>
         </div>
       ) : (
@@ -113,7 +113,7 @@ export function MobileMyReports({
             return (
               <div
                 key={report.id}
-                className="bg-white rounded-2xl border border-[#DCE6F0] overflow-hidden shadow-subtle hover:border-[#3157A4]/30 hover:shadow-card transition-all"
+                className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] overflow-hidden shadow-subtle hover:border-[#3157A4]/30 dark:hover:border-blue-500/40 hover:shadow-card transition-all"
               >
                 {/* Main Card Content */}
                 <div className="p-3.5 sm:p-4 space-y-2.5">
@@ -121,10 +121,10 @@ export function MobileMyReports({
                     <div className="flex items-center gap-2">
                       <span className="text-lg">📍</span>
                       <div>
-                        <h4 className="font-bold text-sm text-[#172B4D] leading-tight">
+                        <h4 className="font-bold text-sm text-[#172B4D] dark:text-white leading-tight">
                           {report.categoryName}
                         </h4>
-                        <span className="font-mono text-[10px] text-[#718096]">
+                        <span className="font-mono text-[10px] text-[#718096] dark:text-[#94A3B8]">
                           #{report.id}
                         </span>
                       </div>
@@ -134,10 +134,10 @@ export function MobileMyReports({
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold shrink-0 ${
                         report.status === 'resolved'
-                          ? 'bg-[#22A982]/10 text-[#22A982] border border-[#22A982]/20'
+                          ? 'bg-[#22A982]/10 dark:bg-emerald-950/60 text-[#22A982] dark:text-[#34D399] border border-[#22A982]/20 dark:border-emerald-700/40'
                           : report.status === 'in-progress'
-                          ? 'bg-[#FEF9C3] text-[#854D0E] border border-[#FDE047]'
-                          : 'bg-[#3157A4]/10 text-[#3157A4] border border-[#3157A4]/20'
+                          ? 'bg-[#FEF9C3] dark:bg-yellow-950/60 text-[#854D0E] dark:text-[#FACC15] border border-[#FDE047] dark:border-yellow-700/40'
+                          : 'bg-[#3157A4]/10 dark:bg-blue-950/60 text-[#3157A4] dark:text-[#60A5FA] border border-[#3157A4]/20 dark:border-blue-700/40'
                       }`}
                     >
                       {report.status === 'resolved' ? (
@@ -161,20 +161,20 @@ export function MobileMyReports({
                       <img
                         src={report.photoUrl}
                         alt={report.categoryName}
-                        className="w-16 h-16 rounded-xl object-cover border border-[#DCE6F0] shrink-0"
+                        className="w-16 h-16 rounded-xl object-cover border border-[#DCE6F0] dark:border-[#1E293B] shrink-0"
                       />
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs text-[#172B4D] line-clamp-2 italic">
+                      <p className="text-xs text-[#172B4D] dark:text-[#E2E8F0] line-clamp-2 italic font-medium">
                         "{report.description}"
                       </p>
-                      <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[#718096]">
+                      <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[#718096] dark:text-[#94A3B8] font-medium">
                         <span className="flex items-center gap-1 truncate max-w-[150px]">
-                          <MapPin className="w-3 h-3 text-[#718096] shrink-0" />
+                          <MapPin className="w-3 h-3 text-[#718096] dark:text-[#94A3B8] shrink-0" />
                           <span className="truncate">{report.location.locality}</span>
                         </span>
                         <span className="flex items-center gap-1 shrink-0">
-                          <Clock className="w-3 h-3 text-[#718096]" />
+                          <Clock className="w-3 h-3 text-[#718096] dark:text-[#94A3B8]" />
                           <span>{report.timestamp}</span>
                         </span>
                       </div>
@@ -182,8 +182,8 @@ export function MobileMyReports({
                   </div>
 
                   {/* Status Progress Line */}
-                  <div className="pt-2 border-t border-[#DCE6F0]">
-                    <div className="flex items-center justify-between text-[10px] text-[#718096] font-semibold mb-1">
+                  <div className="pt-2 border-t border-[#DCE6F0] dark:border-[#1E293B]">
+                    <div className="flex items-center justify-between text-[10px] text-[#718096] dark:text-[#94A3B8] font-semibold mb-1">
                       <span>Complaint Registered</span>
                       <span>Field Inspection</span>
                       <span>Action Taken</span>
@@ -194,12 +194,12 @@ export function MobileMyReports({
                         className={`h-1.5 rounded-full ${
                           report.status === 'in-progress' || report.status === 'resolved'
                             ? 'bg-[#FACC15]'
-                            : 'bg-[#DCE6F0]'
+                            : 'bg-[#DCE6F0] dark:bg-[#1E293B]'
                         }`}
                       />
                       <div
                         className={`h-1.5 rounded-full ${
-                          report.status === 'resolved' ? 'bg-[#22A982]' : 'bg-[#DCE6F0]'
+                          report.status === 'resolved' ? 'bg-[#22A982]' : 'bg-[#DCE6F0] dark:bg-[#1E293B]'
                         }`}
                       />
                     </div>
@@ -212,7 +212,7 @@ export function MobileMyReports({
                       onClick={() =>
                         setSelectedReportId(isExpanded ? null : report.id)
                       }
-                      className="text-xs font-semibold text-[#3157A4] hover:text-[#254483] flex items-center gap-1 transition-colors"
+                      className="text-xs font-semibold text-[#3157A4] dark:text-[#60A5FA] hover:text-[#254483] dark:hover:text-[#93C5FD] flex items-center gap-1 transition-colors"
                     >
                       <span>{isExpanded ? 'Hide details' : 'View tracking timeline'}</span>
                       <ChevronRight
@@ -227,7 +227,7 @@ export function MobileMyReports({
                       <button
                         type="button"
                         onClick={() => onAdvanceReportStage(report.id)}
-                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#718096] bg-[#F4F8FC] hover:bg-[#EBF2FA] hover:text-[#172B4D] border border-[#DCE6F0] px-2.5 py-1 rounded-lg transition-colors shadow-subtle"
+                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#718096] dark:text-[#94A3B8] bg-[#F4F8FC] dark:bg-[#1E293B] hover:bg-[#EBF2FA] dark:hover:bg-[#334155] hover:text-[#172B4D] dark:hover:text-white border border-[#DCE6F0] dark:border-[#334155] px-2.5 py-1 rounded-lg transition-colors shadow-subtle"
                         title="Simulate municipal stage advance"
                       >
                         <Sparkles className="w-3 h-3 text-[#EAB308]" />
@@ -239,25 +239,25 @@ export function MobileMyReports({
 
                 {/* Expanded Timeline Details */}
                 {isExpanded && (
-                  <div className="bg-[#F4F8FC] p-4 border-t border-[#DCE6F0] space-y-3 text-xs animate-fade-in">
+                  <div className="bg-[#F4F8FC] dark:bg-[#111C35] p-4 border-t border-[#DCE6F0] dark:border-[#1E293B] space-y-3 text-xs animate-fade-in">
                     <div className="space-y-1">
-                      <span className="font-bold text-[#172B4D] block">
+                      <span className="font-bold text-[#172B4D] dark:text-white block">
                         Assigned Department:
                       </span>
-                      <span className="text-[#718096]">
+                      <span className="text-[#718096] dark:text-[#94A3B8]">
                         {report.assignedDepartment || 'Ward Rapid Civic Action Cell'}
                       </span>
                     </div>
 
                     <div className="space-y-1">
-                      <span className="font-bold text-[#172B4D] block">Official Remarks:</span>
-                      <div className="p-2.5 rounded-xl bg-white border border-[#DCE6F0] text-[#172B4D] text-xs">
+                      <span className="font-bold text-[#172B4D] dark:text-white block">Official Remarks:</span>
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-[#0F172A] border border-[#DCE6F0] dark:border-[#1E293B] text-[#172B4D] dark:text-[#E2E8F0] text-xs font-medium">
                         {report.officialRemarks ||
                           'Grievance logged into municipal registry. Junior engineer assigned for on-site assessment.'}
                       </div>
                     </div>
 
-                    <div className="text-[11px] text-[#718096] pt-1 flex items-center gap-1.5">
+                    <div className="text-[11px] text-[#718096] dark:text-[#94A3B8] pt-1 flex items-center gap-1.5 font-medium">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#22A982]" />
                       <span>Tamper-proof municipal audit ledger verification ID: #{report.id}</span>
                     </div>

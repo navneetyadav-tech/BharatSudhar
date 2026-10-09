@@ -1,4 +1,4 @@
-export type MobileTab = 'overview' | 'report' | 'my-reports' | 'notifications';
+export type MobileTab = 'overview' | 'explore' | 'report' | 'my-reports' | 'profile' | 'notifications';
 
 export interface ProblemCategory {
   id: string;

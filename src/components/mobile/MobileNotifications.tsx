@@ -38,11 +38,37 @@ const INITIAL_NOTIFICATIONS: CivicNotification[] = [
   },
 ];
 
-export function MobileNotifications() {
-  const [notifications, setNotifications] = useState<CivicNotification[]>(INITIAL_NOTIFICATIONS);
+interface MobileNotificationsProps {
+  notifications?: CivicNotification[];
+  onMarkAllRead?: () => void;
+  onMarkSingleRead?: (id: string) => void;
+}
+
+export function MobileNotifications({
+  notifications: externalNotifications,
+  onMarkAllRead: externalMarkAllRead,
+  onMarkSingleRead: externalMarkSingleRead,
+}: MobileNotificationsProps = {}) {
+  const [internalNotifications, setInternalNotifications] = useState<CivicNotification[]>(INITIAL_NOTIFICATIONS);
+
+  const notifications = externalNotifications ?? internalNotifications;
 
   const handleMarkAllRead = () => {
-    setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
+    if (externalMarkAllRead) {
+      externalMarkAllRead();
+    } else {
+      setInternalNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
+    }
+  };
+
+  const handleToggleRead = (id: string) => {
+    if (externalMarkSingleRead) {
+      externalMarkSingleRead(id);
+    } else {
+      setInternalNotifications((prev) =>
+        prev.map((n) => (n.id === id ? { ...n, isRead: true } : n))
+      );
+    }
   };
 
   const unreadCount = notifications.filter((n) => !n.isRead).length;
@@ -77,7 +103,8 @@ export function MobileNotifications() {
         {notifications.map((item) => (
           <div
             key={item.id}
-            className={`p-4 rounded-2xl border transition-all ${
+            onClick={() => handleToggleRead(item.id)}
+            className={`p-4 rounded-2xl border transition-all cursor-pointer ${
               item.isRead
                 ? 'bg-white border-[#DCE6F0] shadow-subtle'
                 : 'bg-white border-[#3157A4]/40 shadow-subtle ring-1 ring-[#3157A4]/20'

@@ -7,18 +7,65 @@
     scroll-behavior: smooth;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     background-color: #F4F8FC;
     color: #172B4D;
     @apply min-h-screen flex flex-col font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
     color: #172B4D;
     @apply tracking-tight font-bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Night View (Dark Mode) Core Font & Contrast Rules */
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html.dark body {
+    background-color: #0B132B;
+    color: #F1F5F9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4,
+  html.dark h5,
+  html.dark h6 {
+    color: #F8FAFC;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  html.dark p {
+    color: #CBD5E1;
+  }
+
+  html.dark input,
+  html.dark textarea,
+  html.dark select {
+    color: #F8FAFC;
+    background-color: #1E293B;
+    border-color: #334155;
+  }
+
+  html.dark input::placeholder,
+  html.dark textarea::placeholder {
+    color: #64748B;
   }
 }
 
@@ -26,6 +73,12 @@
   /* Modern Civic-Tech Accents */
   .civic-gradient-text {
     background: linear-gradient(135deg, #3157A4 0%, #172B4D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  html.dark .civic-gradient-text {
+    background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -45,11 +98,70 @@
     box-shadow: 0 2px 8px -1px rgba(23, 43, 77, 0.05);
   }
 
+  html.dark .glass-card {
+    background: #0F172A;
+    border-color: #1E293B;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  }
+
   .glass-header {
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid #DCE6F0;
+  }
+
+  html.dark .glass-header {
+    background: rgba(15, 23, 42, 0.96);
+    border-bottom-color: #1E293B;
+  }
+
+  /* Night View Global Utility Font Adaptations */
+  html.dark .text-\[\#172B4D\] {
+    color: #F8FAFC !important;
+  }
+
+  html.dark .text-\[\#0B2545\] {
+    color: #FFFFFF !important;
+  }
+
+  html.dark .text-\[\#718096\] {
+    color: #94A3B8 !important;
+  }
+
+  html.dark .text-\[\#4A5568\] {
+    color: #CBD5E1 !important;
+  }
+
+  html.dark .bg-white {
+    background-color: #0F172A;
+  }
+
+  html.dark .border-\[\#DCE6F0\],
+  html.dark .border-\[\#E2E8F0\] {
+    border-color: #1E293B !important;
+  }
+
+  html.dark .bg-\[\#F4F8FC\] {
+    background-color: #111C35;
+  }
+
+  html.dark .bg-\[\#F8FAFC\] {
+    background-color: #0F172A;
+  }
+
+  html.dark .bg-\[\#EBF1FA\],
+  html.dark .bg-\[\#EBF2FA\] {
+    background-color: #1E293B;
+  }
+
+  html.dark .hover\:bg-\[\#F4F8FC\]:hover {
+    background-color: #1E293B !important;
+  }
+
+  html.dark .hover\:bg-\[\#EBF2FA\]:hover,
+  html.dark .hover\:bg-\[\#EBF1FA\]:hover {
+    background-color: #334155 !important;
   }
 
   /* Mobile-first touch target utility (min 44px) */
@@ -70,12 +182,61 @@
     animation: shimmer 1.5s infinite;
   }
 
+  html.dark .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(30, 41, 59, 0.8) 0%,
+      rgba(51, 65, 85, 0.9) 50%,
+      rgba(30, 41, 59, 0.8) 100%
+    );
+  }
+
   @keyframes shimmer {
     0% {
       background-position: 200% 0;
     }
     100% {
       background-position: -200% 0;
+    }
+  }
+
+  /* Drawer slide & fade animations */
+  .animate-slide-right {
+    animation: slideRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+
+  @keyframes slideRight {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 }

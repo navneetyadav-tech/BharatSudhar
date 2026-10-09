@@ -30,9 +30,9 @@ export function Navbar() {
           <div className="flex h-16 sm:h-18 items-center justify-between gap-4">
             {/* Brand Identity */}
             <Link
-              to="/"
+              to="/dashboard"
               className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3157A4] rounded-xl py-1 px-1 transition-transform hover:scale-[1.02] shrink-0"
-              title="Bharat Sudhar Home"
+              title="Bharat Sudhar Dashboard"
             >
               {/* Civic Tech Emblem Logo */}
               <BharatSudharLogo size="md" />
