@@ -13,27 +13,27 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-white text-[#172B4D] border-t border-[#DCE6F0] mt-auto">
+    <footer className="bg-white dark:bg-[#0B132B] text-[#172B4D] dark:text-[#E2E8F0] border-t border-[#DCE6F0] dark:border-[#1E293B] mt-auto transition-colors">
       {/* Citizen Pledge Banner */}
-      <div className="bg-[#F0F5FD] border-b border-[#DCE6F0] py-6">
+      <div className="bg-[#F0F5FD] dark:bg-[#0F172A] border-b border-[#DCE6F0] dark:border-[#1E293B] py-6 transition-colors">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white border border-[#DCE6F0] text-[#3157A4] shadow-subtle shrink-0">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] text-[#3157A4] dark:text-[#60A5FA] shadow-subtle shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-[#172B4D] font-bold text-base sm:text-lg">
+                <h4 className="text-[#172B4D] dark:text-white font-bold text-base sm:text-lg">
                   Citizen Pledge: &ldquo;Ab Har Nagrik Zimmedaar&rdquo;
                 </h4>
-                <p className="text-xs sm:text-sm text-[#718096]">
+                <p className="text-xs sm:text-sm text-[#718096] dark:text-[#94A3B8]">
                   Together we protect public infrastructure, maintain clean streets, and uphold civic duties.
                 </p>
               </div>
             </div>
             <Link
               to="/about#pledge"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#3157A4] bg-white hover:bg-[#EBF1FA] border border-[#DCE6F0] rounded-xl transition-colors shadow-subtle shrink-0"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#3157A4] dark:text-[#60A5FA] bg-white dark:bg-[#1E293B] hover:bg-[#EBF1FA] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] rounded-xl transition-colors shadow-subtle shrink-0"
             >
               Take the Digital Pledge
               <ExternalLink className="w-3.5 h-3.5" />
@@ -65,47 +65,47 @@ export function Footer() {
                 <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#FACC15] ring-1 ring-white" />
                 <span className="absolute -bottom-1 -left-1 w-2 h-2 rounded-full bg-[#22A982] ring-1 ring-white" />
               </div>
-              <span className="text-xl font-bold text-[#172B4D] tracking-tight">
-                Bharat<span className="text-[#3157A4]">Sudhar</span>
+              <span className="text-xl font-bold text-[#172B4D] dark:text-white tracking-tight">
+                Bharat<span className="text-[#3157A4] dark:text-[#60A5FA]">Sudhar</span>
               </span>
             </div>
-            <p className="text-xs text-[#3157A4] font-semibold tracking-wide uppercase">
+            <p className="text-xs text-[#3157A4] dark:text-[#60A5FA] font-bold tracking-wide uppercase">
               Ab Har Nagrik Zimmedaar
             </p>
-            <p className="text-sm text-[#718096] leading-relaxed">
+            <p className="text-sm text-[#718096] dark:text-[#94A3B8] leading-relaxed">
               An open civic-tech initiative empowering citizens across India to document, track, and collaborate with civic authorities for cleaner, safer, and better-maintained communities.
             </p>
-            <div className="flex items-start gap-2 p-2.5 rounded-xl bg-[#F0F5FD] border border-[#DCE6F0] text-[11px] text-[#718096]">
+            <div className="flex items-start gap-2 p-2.5 rounded-xl bg-[#F0F5FD] dark:bg-[#111C35] border border-[#DCE6F0] dark:border-[#1E293B] text-[11px] text-[#718096] dark:text-[#94A3B8]">
               <AlertCircle className="w-4 h-4 text-[#EAB308] shrink-0 mt-0.5" />
               <span>
-                <strong className="text-[#172B4D]">Civic-Tech Notice:</strong> Bharat Sudhar is an independent citizen platform and is not an official portal of any government ministry.
+                <strong className="text-[#172B4D] dark:text-white">Civic-Tech Notice:</strong> Bharat Sudhar is an independent citizen platform and is not an official portal of any government ministry.
               </span>
             </div>
           </div>
 
           {/* Column 2: Navigation & System */}
           <div className="space-y-4">
-            <h5 className="text-sm font-bold uppercase tracking-wider text-[#172B4D]">
+            <h5 className="text-sm font-bold uppercase tracking-wider text-[#172B4D] dark:text-white">
               Civic Portal
             </h5>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/" className="text-[#718096] hover:text-[#3157A4] transition-colors">
+                <Link to="/" className="text-[#718096] dark:text-[#94A3B8] hover:text-[#3157A4] dark:hover:text-[#60A5FA] transition-colors">
                   Citizen Portal Home
                 </Link>
               </li>
               <li>
-                <Link to="/issues" className="text-[#718096] hover:text-[#3157A4] transition-colors">
+                <Link to="/issues" className="text-[#718096] dark:text-[#94A3B8] hover:text-[#3157A4] dark:hover:text-[#60A5FA] transition-colors">
                   Explore Civic Grievances
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-[#718096] hover:text-[#3157A4] transition-colors">
+                <Link to="/about" className="text-[#718096] dark:text-[#94A3B8] hover:text-[#3157A4] dark:hover:text-[#60A5FA] transition-colors">
                   Citizen Charter & Mission
                 </Link>
               </li>
               <li>
-                <Link to="/design-system" className="text-[#3157A4] hover:text-[#264585] transition-colors inline-flex items-center gap-1.5 font-medium">
+                <Link to="/design-system" className="text-[#3157A4] dark:text-[#60A5FA] hover:text-[#264585] transition-colors inline-flex items-center gap-1.5 font-medium">
                   <Layers className="w-3.5 h-3.5" />
                   Civic Design System
                 </Link>
@@ -116,21 +116,21 @@ export function Footer() {
           {/* Column 3: Emergency & Civic Helplines */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <PhoneCall className="w-4 h-4 text-[#3157A4]" />
-              <h5 className="text-sm font-bold uppercase tracking-wider text-[#172B4D]">
+              <PhoneCall className="w-4 h-4 text-[#3157A4] dark:text-[#60A5FA]" />
+              <h5 className="text-sm font-bold uppercase tracking-wider text-[#172B4D] dark:text-white">
                 Public Helplines
               </h5>
             </div>
             <div className="space-y-2.5">
               {helplines.map((item) => (
-                <div key={item.number} className="text-xs p-2.5 rounded-xl bg-[#F4F8FC] border border-[#DCE6F0]">
+                <div key={item.number} className="text-xs p-2.5 rounded-xl bg-[#F4F8FC] dark:bg-[#111C35] border border-[#DCE6F0] dark:border-[#1E293B]">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-[#172B4D]">{item.name}</span>
-                    <a href={`tel:${item.number}`} className="font-mono font-bold text-[#3157A4] hover:underline">
+                    <span className="font-semibold text-[#172B4D] dark:text-white">{item.name}</span>
+                    <a href={`tel:${item.number}`} className="font-mono font-bold text-[#3157A4] dark:text-[#60A5FA] hover:underline">
                       {item.number}
                     </a>
                   </div>
-                  <span className="text-[#718096] text-[11px]">{item.desc}</span>
+                  <span className="text-[#718096] dark:text-[#94A3B8] text-[11px]">{item.desc}</span>
                 </div>
               ))}
             </div>
@@ -138,17 +138,17 @@ export function Footer() {
 
           {/* Column 4: Community Responsibility */}
           <div className="space-y-4">
-            <h5 className="text-sm font-bold uppercase tracking-wider text-[#172B4D]">
+            <h5 className="text-sm font-bold uppercase tracking-wider text-[#172B4D] dark:text-white">
               Citizen Accountability
             </h5>
-            <p className="text-xs text-[#718096] leading-relaxed">
+            <p className="text-xs text-[#718096] dark:text-[#94A3B8] leading-relaxed">
               Constructive participation ensures rapid municipal response. All submitted reports must include accurate locations and photographic proof.
             </p>
-            <div className="p-3.5 rounded-xl bg-[#F0F5FD] border border-[#DCE6F0] space-y-1.5">
-              <span className="text-xs font-semibold text-[#3157A4] block">
+            <div className="p-3.5 rounded-xl bg-[#F0F5FD] dark:bg-[#111C35] border border-[#DCE6F0] dark:border-[#1E293B] space-y-1.5">
+              <span className="text-xs font-semibold text-[#3157A4] dark:text-[#60A5FA] block">
                 Ethical Civic Tech
               </span>
-              <p className="text-[11px] text-[#718096]">
+              <p className="text-[11px] text-[#718096] dark:text-[#94A3B8]">
                 Data privacy, open standards, and citizen dignity are paramount. No personal biometric or sensitive data is ever stored.
               </p>
             </div>
@@ -156,9 +156,9 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#DCE6F0] mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#718096]">
+        <div className="border-t border-[#DCE6F0] dark:border-[#1E293B] mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#718096] dark:text-[#94A3B8]">
           <p>© {currentYear} Bharat Sudhar. Non-commercial civic-tech initiative.</p>
-          <div className="flex items-center gap-1 text-[#718096]">
+          <div className="flex items-center gap-1 text-[#718096] dark:text-[#94A3B8]">
             <span>Crafted with care</span>
             <Heart className="w-3.5 h-3.5 text-[#EAB308] fill-[#EAB308]" />
             <span>for active Indian citizens</span>

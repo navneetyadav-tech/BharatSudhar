@@ -58,7 +58,7 @@ export function MobileOptionDrawer({
     { id: 'explore' as MobileTab, label: 'Explore Public Issues', icon: Compass },
     { id: 'report' as MobileTab, label: 'Report a Problem', icon: PlusCircle, isPrimary: true },
     { id: 'my-reports' as MobileTab, label: 'My Submitted Reports', icon: FileText, badge: reportsCount },
-    { id: 'profile' as MobileTab, label: 'Citizen Profile & Karma', icon: User },
+    { id: 'profile' as MobileTab, label: 'Citizen Profile', icon: User },
   ];
 
   return (

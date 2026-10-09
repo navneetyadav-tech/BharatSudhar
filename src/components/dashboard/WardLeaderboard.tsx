@@ -1,4 +1,4 @@
-import { Trophy, Medal, Award, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Trophy, Medal, Award, CheckCircle2 } from 'lucide-react';
 import type { WardLeader } from '../../types';
 import { Card } from '../common/Card';
 import { Badge } from '../common/Badge';
@@ -89,15 +89,14 @@ export function WardLeaderboard({ leaders }: WardLeaderboardProps) {
               </div>
             </div>
 
-            {/* Right: Points & Resolutions */}
+            {/* Right: Resolutions */}
             <div className="text-right">
-              <div className="inline-flex items-center gap-1 font-extrabold text-xs sm:text-sm text-chakra-900">
-                <Sparkles className="w-3.5 h-3.5 text-saffron-600" />
-                <span>{leader.karma} PTS</span>
+              <div className="inline-flex items-center gap-1 font-extrabold text-xs sm:text-sm text-emerald-700">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>{leader.issuesResolved} Resolved</span>
               </div>
-              <p className="text-[11px] text-emerald-700 font-semibold flex items-center justify-end gap-1 mt-0.5">
-                <CheckCircle2 className="w-3 h-3" />
-                <span>{leader.issuesResolved} resolved</span>
+              <p className="text-[11px] text-slate-500 font-semibold flex items-center justify-end gap-1 mt-0.5">
+                <span>Verified Citizen</span>
               </p>
             </div>
           </div>
@@ -108,7 +107,7 @@ export function WardLeaderboard({ leaders }: WardLeaderboardProps) {
       <div className="mt-5 p-3 rounded-xl bg-chakra-50 border border-chakra-200 text-xs text-chakra-900 flex items-center gap-2">
         <Medal className="w-4 h-4 text-chakra-700 shrink-0" />
         <span>
-          Nagrik Karma points are earned whenever reported issues are verified and resolved!
+          Leading active citizen volunteers verified in municipal ward initiatives.
         </span>
       </div>
     </Card>

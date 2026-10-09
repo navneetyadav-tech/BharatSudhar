@@ -4,7 +4,7 @@ import { Footer } from './Footer';
 
 export function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-saffron-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0B132B] text-slate-900 dark:text-[#E2E8F0] font-sans selection:bg-saffron-500 selection:text-white transition-colors">
       {/* Top sticky navigation bar */}
       <Navbar />
 

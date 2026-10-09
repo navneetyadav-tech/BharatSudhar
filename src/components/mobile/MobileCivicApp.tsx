@@ -41,8 +41,8 @@ const INITIAL_NOTIFICATIONS: CivicNotification[] = [
   },
   {
     id: 'n3',
-    title: 'Civic Karma Reward',
-    message: 'You earned +50 Civic Karma points for contributing geo-verified civic evidence in your ward.',
+    title: 'Grievance Verified',
+    message: 'Municipal officers have verified the civic evidence and assigned an inspection crew in your ward.',
     time: 'Yesterday',
     type: 'resolution',
     isRead: true,

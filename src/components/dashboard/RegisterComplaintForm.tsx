@@ -450,7 +450,7 @@ export function RegisterComplaintForm({
           <div className="flex items-center gap-2 self-start sm:self-center shrink-0">
             <span className="px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 text-xs font-semibold text-emerald-300 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              +25 Nagrik Karma on Filing
+              Official Municipal Filing
             </span>
           </div>
         </div>

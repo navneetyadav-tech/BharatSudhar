@@ -1,7 +1,5 @@
 import {
   ShieldCheck,
-  Award,
-  Sparkles,
   PlusCircle,
   FileText,
   Clock,
@@ -22,10 +20,7 @@ interface CitizenHeaderProps {
 }
 
 export function CitizenHeader({ citizen, onReportClick, onLogout }: CitizenHeaderProps) {
-  const karmaPercent = Math.min(
-    100,
-    Math.round((citizen.civicKarma / citizen.nextLevelKarma) * 100)
-  );
+
 
   return (
     <div className="space-y-6">
@@ -82,35 +77,9 @@ export function CitizenHeader({ citizen, onReportClick, onLogout }: CitizenHeade
             </div>
           </div>
 
-          {/* Right: Nagrik Karma Counter & Action Button */}
+          {/* Right: Quick Action Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 lg:shrink-0">
-            {/* Karma Points Card */}
-            <div className="bg-white/90 backdrop-blur-sm border border-slate-200 rounded-xl p-3.5 sm:px-5 shadow-sm min-w-[220px]">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-saffron-600" />
-                  Nagrik Karma
-                </span>
-                <span className="text-xs font-extrabold text-saffron-700 bg-saffron-50 px-2 py-0.5 rounded-full border border-saffron-200 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-saffron-600" />
-                  {citizen.civicKarma} PTS
-                </span>
-              </div>
 
-              {/* Progress bar to next level */}
-              <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                <div
-                  className="bg-gradient-to-r from-saffron-500 to-chakra-700 h-full rounded-full transition-all duration-500"
-                  style={{ width: `${karmaPercent}%` }}
-                />
-              </div>
-              <p className="text-[11px] text-slate-500 mt-1.5 flex justify-between">
-                <span>{karmaPercent}% progress</span>
-                <span className="font-medium text-slate-700">
-                  {citizen.nextLevelKarma - citizen.civicKarma} pts to Level {citizen.level + 1}
-                </span>
-              </p>
-            </div>
 
             {/* Quick Actions CTA */}
             <div className="flex flex-wrap items-center gap-2">

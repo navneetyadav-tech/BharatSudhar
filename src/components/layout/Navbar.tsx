@@ -6,16 +6,20 @@ import {
   LayoutDashboard,
   MapPin,
   ShieldCheck,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import { Button } from '../common/Button';
 import { Container } from '../common/Container';
 import { BharatSudharLogo } from '../common/BharatSudharLogo';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import { LoginModal } from '../auth/LoginModal';
 
 export function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const { user, isAuthenticated, isLoginModalOpen, openLoginModal, closeLoginModal, logout } = useAuth();
+  const { isDark, toggleTheme } = useTheme();
   const location = useLocation();
 
   const isCurrent = (path: string) => {
@@ -24,10 +28,9 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full glass-header shadow-subtle border-b border-[#E2E8F0]/70">
-
+      <header className="sticky top-0 z-40 w-full glass-header shadow-subtle border-b border-[#E2E8F0]/70 dark:border-[#1E293B] transition-colors">
         <Container>
-          <div className="flex h-16 sm:h-18 items-center justify-between gap-4">
+          <div className="flex h-16 sm:h-18 items-center justify-between gap-3 sm:gap-4">
             {/* Brand Identity */}
             <Link
               to="/dashboard"
@@ -40,7 +43,7 @@ export function Navbar() {
               {/* Brand Wordmark (No line) */}
               <div className="flex items-center gap-1 sm:gap-1.5">
                 {/* Bharat in Navy Blue */}
-                <span className="text-2xl sm:text-[26px] font-black font-poppins text-[#0B2545] tracking-tight leading-none drop-shadow-xs">
+                <span className="text-2xl sm:text-[26px] font-black font-poppins text-[#0B2545] dark:text-white tracking-tight leading-none drop-shadow-xs transition-colors">
                   Bharat
                 </span>
 
@@ -64,8 +67,8 @@ export function Navbar() {
                 to="/"
                 className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${
                   isCurrent('/')
-                    ? 'bg-[#EBF1FA] text-[#3157A4] font-bold'
-                    : 'text-[#718096] hover:text-[#172B4D] hover:bg-[#F0F5FD]'
+                    ? 'bg-[#EBF1FA] dark:bg-[#1E293B] text-[#3157A4] dark:text-[#60A5FA] font-bold'
+                    : 'text-[#718096] dark:text-[#94A3B8] hover:text-[#172B4D] dark:hover:text-white hover:bg-[#F0F5FD] dark:hover:bg-[#1E293B]'
                 }`}
               >
                 Home
@@ -74,8 +77,8 @@ export function Navbar() {
                 to="/issues"
                 className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${
                   isCurrent('/issues')
-                    ? 'bg-[#EBF1FA] text-[#3157A4] font-bold'
-                    : 'text-[#718096] hover:text-[#172B4D] hover:bg-[#F0F5FD]'
+                    ? 'bg-[#EBF1FA] dark:bg-[#1E293B] text-[#3157A4] dark:text-[#60A5FA] font-bold'
+                    : 'text-[#718096] dark:text-[#94A3B8] hover:text-[#172B4D] dark:hover:text-white hover:bg-[#F0F5FD] dark:hover:bg-[#1E293B]'
                 }`}
               >
                 Public Issues
@@ -84,49 +87,80 @@ export function Navbar() {
                 to="/about"
                 className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${
                   isCurrent('/about')
-                    ? 'bg-[#EBF1FA] text-[#3157A4] font-bold'
-                    : 'text-[#718096] hover:text-[#172B4D] hover:bg-[#F0F5FD]'
+                    ? 'bg-[#EBF1FA] dark:bg-[#1E293B] text-[#3157A4] dark:text-[#60A5FA] font-bold'
+                    : 'text-[#718096] dark:text-[#94A3B8] hover:text-[#172B4D] dark:hover:text-white hover:bg-[#F0F5FD] dark:hover:bg-[#1E293B]'
                 }`}
               >
                 Citizen Charter
               </Link>
             </nav>
 
-            {/* Right Action / Profile Button */}
-            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            {/* Right Action: Day/Night Shifting, Dashboard Shortcut & Profile/Login */}
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              {/* Day / Night Shifting Button */}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                title={isDark ? 'Shift to Day Mode' : 'Shift to Night Mode'}
+                aria-label={isDark ? 'Shift to Day Mode' : 'Shift to Night Mode'}
+                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-xl text-xs font-semibold text-[#172B4D] dark:text-[#E2E8F0] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] hover:border-[#B8CDE6] dark:hover:border-[#475569] transition-all shadow-subtle active:scale-95 shrink-0"
+              >
+                {isDark ? (
+                  <>
+                    <Sun className="w-4 h-4 text-[#FACC15] hover:rotate-45 transition-transform" />
+                    <span className="hidden sm:inline font-bold">Day</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4 text-[#3157A4]" />
+                    <span className="hidden sm:inline font-bold">Night</span>
+                  </>
+                )}
+              </button>
+
+              {/* Direct Portal Link */}
+              <Link
+                to="/dashboard"
+                className="hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold text-[#3157A4] dark:text-[#60A5FA] bg-[#EBF1FA] dark:bg-[#1E293B] hover:bg-[#DCE6F0] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] transition-all shadow-subtle active:scale-95 shrink-0"
+                title="Open Citizen Dashboard"
+              >
+                <LayoutDashboard className="w-3.5 h-3.5" />
+                <span>Portal</span>
+              </Link>
+
               {isAuthenticated && user ? (
                 <div className="relative">
                   <button
                     type="button"
                     onClick={() => setShowUserMenu(!showUserMenu)}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[#DCE6F0] bg-white hover:bg-[#F4F8FC] transition-colors shadow-subtle group"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[#DCE6F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] transition-colors shadow-subtle group"
                     title="Citizen Profile"
                   >
                     <div className="w-7 h-7 rounded-lg bg-[#3157A4] text-white font-bold text-xs flex items-center justify-center shadow-subtle">
                       {user.avatar}
                     </div>
                     <div className="flex flex-col text-left">
-                      <span className="text-xs font-bold text-[#172B4D] leading-tight group-hover:text-[#3157A4]">
+                      <span className="text-xs font-bold text-[#172B4D] dark:text-white leading-tight group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA]">
                         {user.name.split(' ')[0]}
                       </span>
-                      <span className="text-[10px] font-semibold text-[#854D0E] leading-tight">
-                        {user.civicKarma} PTS
+                      <span className="text-[10px] font-semibold text-[#3157A4] dark:text-[#60A5FA] leading-tight">
+                        {user.ward || 'Citizen'}
                       </span>
                     </div>
                   </button>
 
                   {/* User Dropdown Navigation Panel */}
                   {showUserMenu && (
-                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-white border border-[#DCE6F0] shadow-card py-2 z-50 animate-scale-in">
+                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-white dark:bg-[#0F172A] border border-[#DCE6F0] dark:border-[#1E293B] shadow-card py-2 z-50 animate-scale-in">
                       {/* User Header */}
-                      <div className="px-4 py-2.5 border-b border-[#DCE6F0] bg-[#F0F5FD]/50">
+                      <div className="px-4 py-2.5 border-b border-[#DCE6F0] dark:border-[#1E293B] bg-[#F0F5FD]/50 dark:bg-[#1E293B]/60">
                         <div className="flex items-center justify-between">
-                          <p className="text-xs font-bold text-[#172B4D]">{user.name}</p>
-                          <span className="px-2 py-0.5 rounded-full bg-[#FEF9C3] text-[#854D0E] border border-[#FDE047] text-[10px] font-bold">
-                            {user.civicKarma} Karma
+                          <p className="text-xs font-bold text-[#172B4D] dark:text-white">{user.name}</p>
+                          <span className="px-2 py-0.5 rounded-full bg-[#EBF1FA] dark:bg-blue-950/70 text-[#3157A4] dark:text-[#60A5FA] border border-[#DCE6F0] dark:border-blue-800/50 text-[10px] font-bold">
+                            Verified Citizen
                           </span>
                         </div>
-                        <p className="text-[11px] text-[#718096] mt-0.5">
+                        <p className="text-[11px] text-[#718096] dark:text-[#94A3B8] mt-0.5">
                           {user.ward}, {user.city}
                         </p>
                       </div>
@@ -136,43 +170,43 @@ export function Navbar() {
                         <Link
                           to="/dashboard"
                           onClick={() => setShowUserMenu(false)}
-                          className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#172B4D] hover:bg-[#EBF1FA] hover:text-[#3157A4] transition-colors"
+                          className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#172B4D] dark:text-[#E2E8F0] hover:bg-[#EBF1FA] dark:hover:bg-[#1E293B] hover:text-[#3157A4] dark:hover:text-[#60A5FA] transition-colors"
                         >
-                          <LayoutDashboard className="w-4 h-4 text-[#3157A4]" />
+                          <LayoutDashboard className="w-4 h-4 text-[#3157A4] dark:text-[#60A5FA]" />
                           <div>
                             <span className="block font-bold">Citizen Dashboard</span>
-                            <span className="text-[10px] text-[#718096]">Reports, karma & actions</span>
+                            <span className="text-[10px] text-[#718096] dark:text-[#94A3B8]">Reports & actions</span>
                           </div>
                         </Link>
 
                         <Link
                           to="/issues"
                           onClick={() => setShowUserMenu(false)}
-                          className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#718096] hover:bg-[#F0F5FD] hover:text-[#172B4D] transition-colors"
+                          className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#718096] dark:text-[#94A3B8] hover:bg-[#F0F5FD] dark:hover:bg-[#1E293B] hover:text-[#172B4D] dark:hover:text-white transition-colors"
                         >
-                          <MapPin className="w-4 h-4 text-[#718096]" />
+                          <MapPin className="w-4 h-4 text-[#718096] dark:text-[#94A3B8]" />
                           <span>Explore Public Issues</span>
                         </Link>
 
                         <Link
                           to="/about"
                           onClick={() => setShowUserMenu(false)}
-                          className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#718096] hover:bg-[#F0F5FD] hover:text-[#172B4D] transition-colors"
+                          className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-[#718096] dark:text-[#94A3B8] hover:bg-[#F0F5FD] dark:hover:bg-[#1E293B] hover:text-[#172B4D] dark:hover:text-white transition-colors"
                         >
-                          <ShieldCheck className="w-4 h-4 text-[#718096]" />
+                          <ShieldCheck className="w-4 h-4 text-[#718096] dark:text-[#94A3B8]" />
                           <span>Citizen Charter & SLAs</span>
                         </Link>
                       </div>
 
                       {/* Logout */}
-                      <div className="pt-1 border-t border-[#DCE6F0]">
+                      <div className="pt-1 border-t border-[#DCE6F0] dark:border-[#1E293B]">
                         <button
                           type="button"
                           onClick={() => {
                             setShowUserMenu(false);
                             logout();
                           }}
-                          className="w-full flex items-center gap-2 px-4 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 text-left transition-colors"
+                          className="w-full flex items-center gap-2 px-4 py-2 text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-left transition-colors"
                         >
                           <LogOut className="w-4 h-4" />
                           <span>Sign Out</span>

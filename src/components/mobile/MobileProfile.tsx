@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Sparkles,
   PhoneCall,
   MapPin,
   Building2,
@@ -43,7 +42,6 @@ export function MobileProfile({
   const totalReports = reports.length;
   const resolvedCount = reports.filter((r) => r.status === 'resolved').length;
   const activeCount = reports.filter((r) => r.status !== 'resolved').length;
-  const karmaPoints = 350 + (resolvedCount * 50) + (totalReports * 20);
 
   return (
     <div className="space-y-4 pb-8">
@@ -98,23 +96,6 @@ export function MobileProfile({
               <MapPin className="w-3 h-3 text-[#FACC15] shrink-0" />
               <span>Ward 45-B · New Delhi, Delhi</span>
             </p>
-          </div>
-        </div>
-
-        {/* Civic Karma Progress Bar */}
-        <div className="mt-4 pt-3 border-t border-white/15">
-          <div className="flex items-center justify-between text-[11px] mb-1 font-semibold text-slate-100">
-            <span className="flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
-              Civic Karma Score
-            </span>
-            <span className="text-[#FACC15] font-black">{karmaPoints} / 600 PTS</span>
-          </div>
-          <div className="w-full h-2 rounded-full bg-black/25 overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-[#FACC15] to-[#22A982] rounded-full transition-all duration-500"
-              style={{ width: `${Math.min(100, Math.round((karmaPoints / 600) * 100))}%` }}
-            />
           </div>
         </div>
       </div>
