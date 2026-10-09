@@ -24,20 +24,20 @@ interface MobileReportWizardProps {
 // Sample realistic demo photos for instant testing on any device
 const SAMPLE_PHOTOS = [
   {
-    label: 'Garbage Heap',
-    url: 'https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=600&q=80',
+    label: 'Garbage Dump',
+    url: '/images/garbage-dump.jpg',
   },
   {
     label: 'Road Pothole',
-    url: 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=600&q=80',
+    url: '/images/pothole-issue.jpg',
   },
   {
     label: 'Street Light',
-    url: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80',
+    url: '/images/broken-streetlight.jpg',
   },
   {
     label: 'Water Leak',
-    url: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80',
+    url: '/images/water-leakage.jpg',
   },
 ];
 
@@ -341,8 +341,8 @@ export function MobileReportWizard({
                 Step 1 — Select the problem
               </h3>
 
-              {/* 10 Problem Cards Grid (2-column on mobile, exactly like Screenshot 2) */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
+              {/* 10 Problem Cards Grid with Realistic Civic Problem Images */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3.5">
                 {PROBLEM_CATEGORIES.map((cat) => {
                   const isSelected = selectedCategory === cat.id;
                   return (
@@ -350,28 +350,42 @@ export function MobileReportWizard({
                       key={cat.id}
                       type="button"
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`relative flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border text-center transition-all ${
+                      className={`group relative flex flex-col rounded-xl overflow-hidden border text-left transition-all duration-200 cursor-pointer active:scale-[0.98] ${
                         isSelected
-                          ? 'border-[#3157A4] bg-[#EBF2FA] shadow-subtle ring-1 ring-[#3157A4]'
-                          : 'border-[#DCE6F0] bg-white hover:border-[#B8CDE6] hover:bg-[#F4F8FC] shadow-subtle'
+                          ? 'border-[#3157A4] ring-2 ring-[#3157A4]/25 shadow-md bg-[#F4F8FC]'
+                          : 'border-[#DCE6F0] bg-white hover:border-[#3157A4]/60 hover:shadow-subtle'
                       }`}
                     >
-                      {/* Active indicator dot */}
-                      {isSelected && (
-                        <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#3157A4] text-white flex items-center justify-center">
-                          <Check className="w-2.5 h-2.5 stroke-[3]" />
-                        </span>
-                      )}
+                      {/* Realistic Problem Image */}
+                      <div className="relative w-full h-24 sm:h-28 overflow-hidden bg-slate-100">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        {/* Soft dark gradient overlay for depth */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
 
-                      {/* Icon */}
-                      <div className="mb-2 flex items-center justify-center h-10">
-                        {cat.renderIcon()}
+                        {/* Selected Indicator Pill */}
+                        {isSelected && (
+                          <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#3157A4] text-white flex items-center justify-center shadow-md ring-2 ring-white">
+                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                          </div>
+                        )}
                       </div>
 
-                      {/* Label */}
-                      <span className="text-xs sm:text-sm font-semibold text-[#172B4D] leading-tight">
-                        {cat.name}
-                      </span>
+                      {/* Card Label & Description */}
+                      <div className="p-2.5 sm:p-3 flex flex-col justify-between flex-1 bg-white">
+                        <span className={`text-xs sm:text-sm font-bold leading-tight block line-clamp-1 ${
+                          isSelected ? 'text-[#3157A4]' : 'text-[#172B4D]'
+                        }`}>
+                          {cat.name}
+                        </span>
+                        <span className="text-[10px] sm:text-[11px] text-[#718096] mt-0.5 line-clamp-1 leading-snug">
+                          {cat.subtext}
+                        </span>
+                      </div>
                     </button>
                   );
                 })}
@@ -775,15 +789,20 @@ export function MobileReportWizard({
               {/* Summary Review Card */}
               <div className="bg-[#F4F8FC] border border-[#DCE6F0] rounded-2xl p-3.5 sm:p-4 space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-white border border-[#DCE6F0]">
-                    {PROBLEM_CATEGORIES.find((c) => c.id === selectedCategory)?.renderIcon()}
-                  </div>
+                  <img
+                    src={PROBLEM_CATEGORIES.find((c) => c.id === selectedCategory)?.image}
+                    alt=""
+                    className="w-14 h-14 rounded-xl object-cover border border-[#DCE6F0] shadow-2xs shrink-0"
+                  />
                   <div>
                     <span className="text-[10px] uppercase tracking-wider text-[#718096] font-bold block">
                       Problem Category
                     </span>
                     <span className="text-sm font-bold text-[#172B4D]">
                       {PROBLEM_CATEGORIES.find((c) => c.id === selectedCategory)?.name}
+                    </span>
+                    <span className="text-xs text-[#718096] line-clamp-1">
+                      {PROBLEM_CATEGORIES.find((c) => c.id === selectedCategory)?.subtext}
                     </span>
                   </div>
                 </div>

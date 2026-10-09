@@ -4,6 +4,7 @@ export interface CategoryItem {
   id: string;
   name: string;
   subtext: string;
+  image: string;
   iconBg: string;
   iconColor: string;
   // Specific SVG / rendering for the problem icon
@@ -15,6 +16,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'garbage-waste',
     name: 'Garbage / Waste',
     subtext: 'Overflowing bins, roadside dumping, uncollected trash',
+    image: '/images/garbage-dump.jpg',
     iconBg: 'bg-emerald-50',
     iconColor: 'text-emerald-600',
     renderIcon: () => (
@@ -31,6 +33,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'pothole-road',
     name: 'Pothole / Road Damage',
     subtext: 'Cratered roads, cracked asphalt, damaged speed bumps',
+    image: '/images/pothole-issue.jpg',
     iconBg: 'bg-slate-100',
     iconColor: 'text-slate-700',
     renderIcon: () => (
@@ -45,6 +48,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'broken-streetlight',
     name: 'Broken Streetlight',
     subtext: 'Dark street stretch, flickering light, damaged pole',
+    image: '/images/broken-streetlight.jpg',
     iconBg: 'bg-yellow-50',
     iconColor: 'text-yellow-600',
     renderIcon: () => (
@@ -64,6 +68,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'open-manhole',
     name: 'Open Manhole',
     subtext: 'Missing or broken sewer lid, dangerous street hole',
+    image: '/images/open-manhole.jpg',
     iconBg: 'bg-yellow-50',
     iconColor: 'text-yellow-700',
     renderIcon: () => (
@@ -78,6 +83,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'water-leakage',
     name: 'Water Leakage',
     subtext: 'Pipeline burst, drinking water wastage, low pressure',
+    image: '/images/water-leakage.jpg',
     iconBg: 'bg-blue-50',
     iconColor: 'text-blue-600',
     renderIcon: () => (
@@ -94,6 +100,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'drainage-issue',
     name: 'Drainage Issue',
     subtext: 'Blocked nullah, monsoon waterlogging, foul sewage overflow',
+    image: '/images/drainage-issue.jpg',
     iconBg: 'bg-cyan-50',
     iconColor: 'text-cyan-600',
     renderIcon: () => (
@@ -108,6 +115,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'fallen-tree',
     name: 'Fallen Tree',
     subtext: 'Uprooted tree, broken large branches blocking path',
+    image: '/images/fallen-tree.jpg',
     iconBg: 'bg-green-50',
     iconColor: 'text-green-600',
     renderIcon: () => (
@@ -123,6 +131,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'road-obstruction',
     name: 'Road Obstruction',
     subtext: 'Illegal construction debris, blocked lanes, abandoned vehicles',
+    image: '/images/road-obstruction.jpg',
     iconBg: 'bg-yellow-50',
     iconColor: 'text-yellow-700',
     renderIcon: () => (
@@ -139,6 +148,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'damaged-public-property',
     name: 'Damaged Public Property',
     subtext: 'Broken bus shelter, damaged park benches, defaced monument',
+    image: '/images/damaged-property.jpg',
     iconBg: 'bg-stone-50',
     iconColor: 'text-stone-700',
     renderIcon: () => (
@@ -155,6 +165,7 @@ export const PROBLEM_CATEGORIES: CategoryItem[] = [
     id: 'other',
     name: 'Other',
     subtext: 'Encroachment, noise nuisance, stray animals, general issues',
+    image: '/images/other-civic.jpg',
     iconBg: 'bg-rose-50',
     iconColor: 'text-rose-500',
     renderIcon: () => (
