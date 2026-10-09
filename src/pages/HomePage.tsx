@@ -70,9 +70,9 @@ export function HomePage() {
   ];
 
   return (
-    <div className="flex flex-col space-y-16 pb-20 bg-[#F4F8FC] dark:bg-[#0B132B] transition-colors">
+    <div className="flex flex-col space-y-16 pb-20 bg-[#F4F8FC] dark:bg-[#0B132B] transition-colors w-full max-w-full overflow-x-hidden">
       {/* Hero Section with India Gate Background & Clean Brand Layout */}
-      <section className="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28 border-b border-[#DCE6F0] dark:border-[#1E293B]">
+      <section className="relative overflow-hidden w-full max-w-full pt-8 pb-16 lg:pt-16 lg:pb-28 border-b border-[#DCE6F0] dark:border-[#1E293B]">
         {/* India Gate Background Image with 3D Tricolor Ribbon */}
         <div
           className="absolute inset-0 bg-cover bg-right lg:bg-center bg-no-repeat transition-transform duration-1000 scale-100 opacity-90 dark:opacity-40"
@@ -81,22 +81,22 @@ export function HomePage() {
         {/* Soft atmospheric gradient wash on left for crystal-clear readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:via-white/70 dark:from-[#0B132B] dark:via-[#0B132B]/90 dark:to-transparent pointer-events-none" />
 
-        <Container className="relative z-10 pt-4 lg:pt-8">
-          <div className="max-w-2xl lg:max-w-3xl space-y-6 text-left">
+        <Container className="relative z-10 pt-2 lg:pt-8">
+          <div className="max-w-2xl lg:max-w-3xl space-y-5 sm:space-y-6 text-left">
             {/* Main Brand Title: Bharat Sudhar with leaf accent */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <h1 className="relative inline-flex flex-wrap items-baseline gap-2 sm:gap-3">
                 {/* Bharat in Navy Blue / White */}
-                <span className="text-5xl sm:text-6xl xl:text-7xl font-black font-poppins text-[#0B2545] dark:text-white tracking-tight drop-shadow-xs transition-colors">
+                <span className="text-4xl sm:text-6xl xl:text-7xl font-black font-poppins text-[#0B2545] dark:text-white tracking-tight drop-shadow-xs transition-colors">
                   Bharat
                 </span>
 
                 {/* Sudhar with Tiranga Gradient & Sprout Leaves */}
-                <span className="relative text-5xl sm:text-6xl xl:text-7xl font-black font-poppins bg-gradient-to-r from-[#FF671F] via-[#F35D07] to-[#046A38] bg-clip-text text-transparent tracking-tight">
+                <span className="relative text-4xl sm:text-6xl xl:text-7xl font-black font-poppins bg-gradient-to-r from-[#FF671F] via-[#F35D07] to-[#046A38] bg-clip-text text-transparent tracking-tight">
                   Sudhar
                   {/* Sprout Green Leaves atop Sudhar */}
-                  <span className="absolute -top-3.5 -right-6 sm:-top-5 sm:-right-8 select-none pointer-events-none">
-                    <svg className="w-7 h-7 sm:w-10 sm:h-10 text-[#2E7D32]" viewBox="0 0 24 24" fill="currentColor">
+                  <span className="absolute -top-3 -right-5 sm:-top-5 sm:-right-8 select-none pointer-events-none">
+                    <svg className="w-6 h-6 sm:w-10 sm:h-10 text-[#2E7D32]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5c0 3 3 5 5 5 1 0 2-.5 3-1.5C13 14 16 11 17 8z" fill="#2E7D32" />
                       <path d="M12 5c-3 1-5 4-6 6.5" stroke="#81C784" strokeWidth="1.5" strokeLinecap="round" fill="none" />
                     </svg>
@@ -107,27 +107,27 @@ export function HomePage() {
 
             {/* Slogan Pill Badge */}
             <div>
-              <div className="inline-flex items-center px-5 py-2 rounded-2xl bg-[#EBF3FB] dark:bg-[#1E293B] border border-[#CFE1F5] dark:border-[#334155] shadow-xs">
-                <span className="text-sm sm:text-base font-extrabold text-[#0B2545] dark:text-[#FACC15] tracking-tight font-poppins">
+              <div className="inline-flex items-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-2xl bg-[#EBF3FB] dark:bg-[#1E293B] border border-[#CFE1F5] dark:border-[#334155] shadow-xs">
+                <span className="text-xs sm:text-base font-extrabold text-[#0B2545] dark:text-[#FACC15] tracking-tight font-poppins">
                   {env.appSlogan || 'Ab Har Nagrik Zimmedaar'}
                 </span>
               </div>
             </div>
 
             {/* Descriptive Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl text-[#1C2A38] dark:text-[#CBD5E1] font-medium max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-lg lg:text-xl text-[#1C2A38] dark:text-[#CBD5E1] font-medium max-w-2xl leading-relaxed">
               A citizen-driven digital platform for reporting, prioritizing and tracking real-world civic issues.
             </p>
 
             {/* Main Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               {isAuthenticated ? (
-                <Link to="/dashboard">
+                <Link to="/dashboard" className="w-full sm:w-auto">
                   <Button
                     variant="saffron"
                     size="lg"
                     rightIcon={<ArrowRight className="w-5 h-5" />}
-                    className="font-black font-poppins text-sm sm:text-base shadow-md px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#FF671F] to-[#E65100] text-white hover:from-[#E65100] hover:to-[#D84315] hover:scale-102 transition-all"
+                    className="w-full sm:w-auto font-black font-poppins text-sm sm:text-base shadow-md px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#FF671F] to-[#E65100] text-white hover:from-[#E65100] hover:to-[#D84315] hover:scale-102 transition-all justify-center"
                   >
                     Open Citizen Dashboard
                   </Button>
@@ -138,16 +138,16 @@ export function HomePage() {
                   size="lg"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
                   onClick={openLoginModal}
-                  className="font-black font-poppins text-sm sm:text-base shadow-md px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#FF671F] to-[#E65100] text-white hover:from-[#E65100] hover:to-[#D84315] hover:scale-102 transition-all"
+                  className="w-full sm:w-auto font-black font-poppins text-sm sm:text-base shadow-md px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#FF671F] to-[#E65100] text-white hover:from-[#E65100] hover:to-[#D84315] hover:scale-102 transition-all justify-center"
                 >
                   Report Civic Issue Now
                 </Button>
               )}
-              <Link to="/about">
+              <Link to="/about" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="font-bold font-poppins text-sm sm:text-base px-6 py-3.5 rounded-xl bg-white/90 dark:bg-[#1E293B] border-[#D0E2F5] dark:border-[#334155] text-[#0B2545] dark:text-white hover:bg-white dark:hover:bg-[#334155] transition-all shadow-xs"
+                  className="w-full sm:w-auto font-bold font-poppins text-sm sm:text-base px-6 py-3 sm:py-3.5 rounded-xl bg-white/90 dark:bg-[#1E293B] border-[#D0E2F5] dark:border-[#334155] text-[#0B2545] dark:text-white hover:bg-white dark:hover:bg-[#334155] transition-all shadow-xs justify-center"
                 >
                   Learn More
                 </Button>
@@ -155,17 +155,17 @@ export function HomePage() {
             </div>
 
             {/* Civic Guarantee / Trust Badges */}
-            <div className="pt-6 flex flex-wrap items-center gap-6 text-xs text-[#4A5568] dark:text-[#94A3B8] font-semibold">
+            <div className="pt-4 sm:pt-6 flex flex-wrap items-center gap-3 sm:gap-6 text-xs text-[#4A5568] dark:text-[#94A3B8] font-semibold">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#22A982] dark:text-[#34D399]" />
+                <CheckCircle2 className="w-4 h-4 text-[#22A982] dark:text-[#34D399] shrink-0" />
                 Direct Municipal Integration
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#22A982] dark:text-[#34D399]" />
+                <CheckCircle2 className="w-4 h-4 text-[#22A982] dark:text-[#34D399] shrink-0" />
                 Transparent Civic Tracking
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#22A982] dark:text-[#34D399]" />
+                <CheckCircle2 className="w-4 h-4 text-[#22A982] dark:text-[#34D399] shrink-0" />
                 100% Free Public Initiative
               </span>
             </div>
