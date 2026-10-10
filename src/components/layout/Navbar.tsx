@@ -8,8 +8,9 @@ import {
   ShieldCheck,
   Sun,
   Moon,
+  UserPlus,
+  Building,
 } from 'lucide-react';
-import { Button } from '../common/Button';
 import { Container } from '../common/Container';
 import { BharatSudharLogo } from '../common/BharatSudharLogo';
 import { useAuth } from '../../context/AuthContext';
@@ -18,7 +19,15 @@ import { LoginModal } from '../auth/LoginModal';
 
 export function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const { user, isAuthenticated, isLoginModalOpen, openLoginModal, closeLoginModal, logout } = useAuth();
+  const {
+    user,
+    isAuthenticated,
+    isAuthority,
+    isLoginModalOpen,
+    openLoginModal,
+    closeLoginModal,
+    logout,
+  } = useAuth();
   const { isDark, toggleTheme } = useTheme();
   const location = useLocation();
 
@@ -120,6 +129,18 @@ export function Navbar() {
                 )}
               </button>
 
+              {/* Authority Admin Panel Link (if logged in as authority) */}
+              {isAuthority && (
+                <Link
+                  to="/admin"
+                  className="hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold text-white bg-chakra-900 hover:bg-chakra-950 border border-chakra-800 transition-all shadow-subtle active:scale-95 shrink-0"
+                  title="Open Municipal Authority Admin Panel"
+                >
+                  <Building className="w-3.5 h-3.5 text-saffron-400" />
+                  <span>Admin Panel</span>
+                </Link>
+              )}
+
               {/* Direct Portal Link */}
               <Link
                 to="/dashboard"
@@ -169,6 +190,20 @@ export function Navbar() {
 
                       {/* Navigation Options in Menu */}
                       <div className="py-1">
+                        {isAuthority && (
+                          <Link
+                            to="/admin"
+                            onClick={() => setShowUserMenu(false)}
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-saffron-700 dark:text-saffron-400 bg-saffron-50/70 dark:bg-saffron-950/30 hover:bg-saffron-100 transition-colors border-b border-saffron-100 dark:border-saffron-900/30"
+                          >
+                            <Building className="w-4 h-4 text-saffron-600 shrink-0" />
+                            <div>
+                              <span className="block font-bold">Municipal Admin Console</span>
+                              <span className="text-[10px] text-slate-500">Ward Triage & Actions</span>
+                            </div>
+                          </Link>
+                        )}
+
                         <Link
                           to="/dashboard"
                           onClick={() => setShowUserMenu(false)}
@@ -218,15 +253,29 @@ export function Navbar() {
                   )}
                 </div>
               ) : (
-                <Button
-                  variant="saffron"
-                  size="sm"
-                  leftIcon={<LogIn className="w-3.5 h-3.5" />}
-                  onClick={openLoginModal}
-                  className="text-xs font-bold shadow-subtle px-2.5 sm:px-4 py-1.5 sm:py-2 shrink-0"
-                >
-                  <span className="hidden sm:inline">Citizen </span>Login
-                </Button>
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                  {/* Login Button */}
+                  <button
+                    type="button"
+                    onClick={() => openLoginModal('login')}
+                    className="inline-flex items-center gap-1.5 h-8.5 sm:h-9 px-2.5 sm:px-3.5 rounded-xl text-xs font-bold text-[#172B4D] dark:text-[#E2E8F0] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] hover:border-[#3157A4]/50 transition-all shadow-subtle active:scale-95 cursor-pointer"
+                    title="Log in to your citizen account"
+                  >
+                    <LogIn className="w-3.5 h-3.5 text-[#3157A4] dark:text-[#60A5FA]" />
+                    <span>Login</span>
+                  </button>
+
+                  {/* Sign Up Button */}
+                  <button
+                    type="button"
+                    onClick={() => openLoginModal('signup')}
+                    className="inline-flex items-center gap-1.5 h-8.5 sm:h-9 px-3 sm:px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#FF671F] to-[#E65100] hover:from-[#E65100] hover:to-[#D84315] shadow-subtle active:scale-95 transition-all cursor-pointer"
+                    title="Create a new citizen account"
+                  >
+                    <UserPlus className="w-3.5 h-3.5" />
+                    <span>Sign Up</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>

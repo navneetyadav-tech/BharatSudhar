@@ -10,6 +10,7 @@ const AboutPage = lazy(() => import('../pages/AboutPage').then((m) => ({ default
 const IssuesPage = lazy(() => import('../pages/IssuesPage').then((m) => ({ default: m.IssuesPage })));
 const DashboardPage = lazy(() => import('../pages/DashboardPage').then((m) => ({ default: m.DashboardPage })));
 const LoginPage = lazy(() => import('../pages/LoginPage').then((m) => ({ default: m.LoginPage })));
+const AdminPage = lazy(() => import('../pages/AdminPage').then((m) => ({ default: m.AdminPage })));
 const DesignSystemPage = lazy(() => import('../pages/DesignSystemPage').then((m) => ({ default: m.DesignSystemPage })));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 
@@ -21,6 +22,9 @@ export function AppRoutes() {
           {/* Standalone Citizen Portal & Mobile UI (no outer marketing header/footer) */}
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/mobile" element={<DashboardPage />} />
+
+          {/* Municipal Authority Admin Panel Command Center */}
+          <Route path="/admin" element={<AdminPage />} />
 
           {/* Marketing & Public Information Pages */}
           <Route path="/" element={<Layout />}>

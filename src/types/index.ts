@@ -73,6 +73,11 @@ export interface CitizenProfile {
   levelTitle: string;
   nextLevelKarma: number;
   joinedDate: string;
+  isAuthority?: boolean;
+  department?: string;
+  designation?: string;
+  municipality?: string;
+  badgeNumber?: string;
   stats: {
     totalReported: number;
     totalResolved: number;

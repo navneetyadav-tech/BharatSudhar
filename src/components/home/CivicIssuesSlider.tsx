@@ -5,8 +5,8 @@ import {
   ChevronRight,
   ArrowRight,
   Flame,
-  LogIn,
 } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 interface CivicIssueSlide {
   id: string;
@@ -67,6 +67,7 @@ const CIVIC_SLIDES: CivicIssueSlide[] = [
 ];
 
 export function CivicIssuesSlider() {
+  const { isAuthenticated } = useAuth();
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   // Auto-slide effect every 2.8 seconds, pauses on mouse hover / touch
@@ -168,11 +169,11 @@ export function CivicIssuesSlider() {
         {displayedSlides.map((issue, index) => (
           <Link
             key={`${issue.id}-${index}`}
-            to="/login"
+            to={isAuthenticated ? "/dashboard" : "/login"}
             className="w-[280px] sm:w-[320px] md:w-[350px] shrink-0 rounded-2xl bg-white dark:bg-[#0F172A] border border-[#DCE6F0] dark:border-[#1E293B] hover:border-[#FF671F]/60 dark:hover:border-orange-500/60 shadow-card hover:shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 group flex flex-col cursor-pointer no-underline"
             title={`Report ${issue.title}`}
           >
-            {/* Image Box - Clicking takes to /login */}
+            {/* Image Box */}
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
               <img
                 src={issue.image}
@@ -182,16 +183,16 @@ export function CivicIssuesSlider() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-              {/* Hover Overlay: Prompts citizen to Log In & Report */}
+              {/* Hover Overlay */}
               <div className="absolute inset-0 bg-[#0B2545]/75 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 text-center z-20">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#FF671F] to-[#E65100] text-white flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform mb-2">
-                  <LogIn className="w-6 h-6" />
+                  <ArrowRight className="w-6 h-6" />
                 </div>
                 <span className="text-white font-black text-sm font-poppins drop-shadow-sm">
-                  Report This Issue
+                  {isAuthenticated ? 'Report in Portal' : 'Report This Issue'}
                 </span>
                 <span className="text-xs text-orange-200 font-bold mt-0.5">
-                  Click to Report →
+                  {isAuthenticated ? 'Open Dashboard →' : 'Click to Report →'}
                 </span>
               </div>
 

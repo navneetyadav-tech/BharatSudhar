@@ -137,7 +137,7 @@ export function HomePage() {
                   variant="saffron"
                   size="lg"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
-                  onClick={openLoginModal}
+                  onClick={() => openLoginModal('signup')}
                   className="w-full sm:w-auto font-black font-poppins text-sm sm:text-base shadow-md px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#FF671F] to-[#E65100] text-white hover:from-[#E65100] hover:to-[#D84315] hover:scale-102 transition-all justify-center"
                 >
                   Report Civic Issue Now
