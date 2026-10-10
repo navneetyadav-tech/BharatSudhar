@@ -38,32 +38,32 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full glass-header shadow-subtle border-b border-[#E2E8F0]/70 dark:border-[#1E293B] transition-colors">
-        <Container>
-          <div className="flex h-16 sm:h-18 items-center justify-between gap-2 sm:gap-4">
+        <Container className="px-2.5 sm:px-6 lg:px-8">
+          <div className="flex h-16 sm:h-18 items-center justify-between gap-1.5 sm:gap-4">
             {/* Brand Identity */}
             <Link
               to="/dashboard"
-              className="flex items-center gap-1.5 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3157A4] rounded-xl py-1 transition-transform hover:scale-[1.02] shrink-0 min-w-0"
+              className="flex items-center gap-1 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3157A4] rounded-xl py-1 transition-transform hover:scale-[1.02] shrink-0 min-w-0"
               title="Bharat Sudhar Dashboard"
             >
               {/* Civic Tech Emblem Logo */}
-              <div className="shrink-0 scale-90 sm:scale-100 origin-left">
+              <div className="shrink-0 scale-75 sm:scale-100 origin-left -mr-1.5 sm:mr-0">
                 <BharatSudharLogo size="md" />
               </div>
 
-              {/* Brand Wordmark (No line) */}
-              <div className="flex items-center gap-1 sm:gap-1.5">
+              {/* Brand Wordmark */}
+              <div className="flex items-center gap-0.5 sm:gap-1.5">
                 {/* Bharat in Navy Blue */}
-                <span className="text-xl sm:text-2xl lg:text-[26px] font-black font-poppins text-[#0B2545] dark:text-white tracking-tight leading-none drop-shadow-xs transition-colors">
+                <span className="text-base sm:text-2xl lg:text-[26px] font-black font-poppins text-[#0B2545] dark:text-white tracking-tight leading-none drop-shadow-xs transition-colors">
                   Bharat
                 </span>
 
                 {/* Sudhar with Tiranga Gradient & Leaf Sprout */}
-                <span className="relative text-xl sm:text-2xl lg:text-[26px] font-black font-poppins bg-gradient-to-r from-[#FF671F] via-[#F35D07] to-[#046A38] bg-clip-text text-transparent tracking-tight leading-none">
+                <span className="relative text-base sm:text-2xl lg:text-[26px] font-black font-poppins bg-gradient-to-r from-[#FF671F] via-[#F35D07] to-[#046A38] bg-clip-text text-transparent tracking-tight leading-none">
                   Sudhar
                   {/* Sprout Green Leaf atop Sudhar */}
-                  <span className="absolute -top-2 -right-3 sm:-top-2.5 sm:-right-3.5 select-none pointer-events-none">
-                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#2E7D32]" viewBox="0 0 24 24" fill="currentColor">
+                  <span className="absolute -top-1.5 -right-2 sm:-top-2.5 sm:-right-3.5 select-none pointer-events-none scale-75 sm:scale-100 origin-bottom-left">
+                    <svg className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#2E7D32]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5c0 3 3 5 5 5 1 0 2-.5 3-1.5C13 14 16 11 17 8z" fill="#2E7D32" />
                       <path d="M12 5c-3 1-5 4-6 6.5" stroke="#81C784" strokeWidth="1.5" strokeLinecap="round" fill="none" />
                     </svg>
@@ -107,23 +107,23 @@ export function Navbar() {
             </nav>
 
             {/* Right Action: Day/Night Shifting, Dashboard Shortcut & Profile/Login */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
               {/* Day / Night Shifting Button */}
               <button
                 type="button"
                 onClick={toggleTheme}
                 title={isDark ? 'Shift to Day Mode' : 'Shift to Night Mode'}
                 aria-label={isDark ? 'Shift to Day Mode' : 'Shift to Night Mode'}
-                className="inline-flex items-center justify-center gap-1.5 h-8.5 sm:h-9 px-2 sm:px-3 rounded-xl text-xs font-semibold text-[#172B4D] dark:text-[#E2E8F0] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] hover:border-[#B8CDE6] dark:hover:border-[#475569] transition-all shadow-subtle active:scale-95 shrink-0"
+                className="inline-flex items-center justify-center gap-1.5 h-8 sm:h-9 w-8 sm:w-auto px-0 sm:px-3 rounded-lg sm:rounded-xl text-xs font-semibold text-[#172B4D] dark:text-[#E2E8F0] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] hover:border-[#B8CDE6] dark:hover:border-[#475569] transition-all shadow-subtle active:scale-95 shrink-0"
               >
                 {isDark ? (
                   <>
-                    <Sun className="w-4 h-4 text-[#FACC15] hover:rotate-45 transition-transform" />
+                    <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FACC15] hover:rotate-45 transition-transform" />
                     <span className="hidden sm:inline font-bold">Day</span>
                   </>
                 ) : (
                   <>
-                    <Moon className="w-4 h-4 text-[#3157A4]" />
+                    <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#3157A4]" />
                     <span className="hidden sm:inline font-bold">Night</span>
                   </>
                 )}
@@ -152,21 +152,21 @@ export function Navbar() {
               </Link>
 
               {isAuthenticated && user ? (
-                <div className="relative">
+                <div className="relative shrink-0">
                   <button
                     type="button"
                     onClick={() => setShowUserMenu(!showUserMenu)}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[#DCE6F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] transition-colors shadow-subtle group"
+                    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border border-[#DCE6F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] transition-colors shadow-subtle group shrink-0"
                     title="Citizen Profile"
                   >
-                    <div className="w-7 h-7 rounded-lg bg-[#3157A4] text-white font-bold text-xs flex items-center justify-center shadow-subtle">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#3157A4] text-white font-bold text-xs flex items-center justify-center shadow-subtle shrink-0">
                       {user.avatar}
                     </div>
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs font-bold text-[#172B4D] dark:text-white leading-tight group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA]">
+                    <div className="flex flex-col text-left max-w-[65px] sm:max-w-none truncate">
+                      <span className="text-xs font-bold text-[#172B4D] dark:text-white leading-tight group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA] truncate">
                         {user.name.split(' ')[0]}
                       </span>
-                      <span className="text-[10px] font-semibold text-[#3157A4] dark:text-[#60A5FA] leading-tight">
+                      <span className="text-[9px] sm:text-[10px] font-semibold text-[#3157A4] dark:text-[#60A5FA] leading-tight truncate">
                         {user.ward || 'Citizen'}
                       </span>
                     </div>
@@ -253,12 +253,12 @@ export function Navbar() {
                   )}
                 </div>
               ) : (
-                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                   {/* Login Button */}
                   <button
                     type="button"
                     onClick={() => openLoginModal('login')}
-                    className="inline-flex items-center gap-1.5 h-8.5 sm:h-9 px-2.5 sm:px-3.5 rounded-xl text-xs font-bold text-[#172B4D] dark:text-[#E2E8F0] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] hover:border-[#3157A4]/50 transition-all shadow-subtle active:scale-95 cursor-pointer"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 h-8 sm:h-9 px-2 sm:px-3.5 rounded-lg sm:rounded-xl text-xs font-bold text-[#172B4D] dark:text-[#E2E8F0] bg-white dark:bg-[#1E293B] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] border border-[#DCE6F0] dark:border-[#334155] hover:border-[#3157A4]/50 transition-all shadow-subtle active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
                     title="Log in to your citizen account"
                   >
                     <LogIn className="w-3.5 h-3.5 text-[#3157A4] dark:text-[#60A5FA]" />
@@ -269,7 +269,7 @@ export function Navbar() {
                   <button
                     type="button"
                     onClick={() => openLoginModal('signup')}
-                    className="inline-flex items-center gap-1.5 h-8.5 sm:h-9 px-3 sm:px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#FF671F] to-[#E65100] hover:from-[#E65100] hover:to-[#D84315] shadow-subtle active:scale-95 transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 h-8 sm:h-9 px-2.5 sm:px-4 rounded-lg sm:rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#FF671F] to-[#E65100] hover:from-[#E65100] hover:to-[#D84315] shadow-subtle active:scale-95 transition-all cursor-pointer whitespace-nowrap shrink-0"
                     title="Create a new citizen account"
                   >
                     <UserPlus className="w-3.5 h-3.5" />

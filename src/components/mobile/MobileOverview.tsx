@@ -58,41 +58,41 @@ export function MobileOverview({
       </div>
 
       {/* 3 Metric Cards with Top Accent Borders */}
-      <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4">
         {/* Card 1: Total reports filed (Primary Navy Blue Top Border) */}
-        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all hover:border-[#3157A4]/40 dark:hover:border-blue-500/40">
-          <div className="h-1 -mt-3.5 -mx-3.5 sm:-mt-4 sm:-mx-4 bg-[#3157A4] dark:bg-[#60A5FA] mb-2 sm:mb-3" />
+        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle overflow-hidden flex flex-col justify-between p-2.5 sm:p-4 transition-all hover:border-[#3157A4]/40 dark:hover:border-blue-500/40">
+          <div className="h-1 -mt-2.5 -mx-2.5 sm:-mt-4 sm:-mx-4 bg-[#3157A4] dark:bg-[#60A5FA] mb-2 sm:mb-3" />
           <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#172B4D] dark:text-white leading-none tracking-tight">
+            <div className="text-xl sm:text-3xl lg:text-4xl font-black text-[#172B4D] dark:text-white leading-none tracking-tight">
               {totalCount}
             </div>
-            <p className="text-[11px] sm:text-xs text-[#718096] dark:text-[#94A3B8] font-semibold mt-1.5 leading-snug">
-              Total reports filed
+            <p className="text-[10px] sm:text-xs text-[#718096] dark:text-[#94A3B8] font-semibold mt-1.5 leading-snug">
+              Total reports
             </p>
           </div>
         </div>
 
         {/* Card 2: Currently active (Lemon Yellow Top Border) */}
-        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all hover:border-[#FACC15]/40 dark:hover:border-yellow-500/40">
-          <div className="h-1 -mt-3.5 -mx-3.5 sm:-mt-4 sm:-mx-4 bg-[#FACC15] mb-2 sm:mb-3" />
+        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle overflow-hidden flex flex-col justify-between p-2.5 sm:p-4 transition-all hover:border-[#FACC15]/40 dark:hover:border-yellow-500/40">
+          <div className="h-1 -mt-2.5 -mx-2.5 sm:-mt-4 sm:-mx-4 bg-[#FACC15] mb-2 sm:mb-3" />
           <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#172B4D] dark:text-white leading-none tracking-tight">
+            <div className="text-xl sm:text-3xl lg:text-4xl font-black text-[#172B4D] dark:text-white leading-none tracking-tight">
               {activeCount}
             </div>
-            <p className="text-[11px] sm:text-xs text-[#718096] dark:text-[#94A3B8] font-semibold mt-1.5 leading-snug">
-              Currently active
+            <p className="text-[10px] sm:text-xs text-[#718096] dark:text-[#94A3B8] font-semibold mt-1.5 leading-snug">
+              Active now
             </p>
           </div>
         </div>
 
         {/* Card 3: Resolved (Success Green Top Border) */}
-        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all hover:border-[#22A982]/40 dark:hover:border-emerald-500/40">
-          <div className="h-1 -mt-3.5 -mx-3.5 sm:-mt-4 sm:-mx-4 bg-[#22A982] mb-2 sm:mb-3" />
+        <div className="bg-white dark:bg-[#0F172A] rounded-2xl border border-[#DCE6F0] dark:border-[#1E293B] shadow-subtle overflow-hidden flex flex-col justify-between p-2.5 sm:p-4 transition-all hover:border-[#22A982]/40 dark:hover:border-emerald-500/40">
+          <div className="h-1 -mt-2.5 -mx-2.5 sm:-mt-4 sm:-mx-4 bg-[#22A982] mb-2 sm:mb-3" />
           <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#172B4D] dark:text-white leading-none tracking-tight">
+            <div className="text-xl sm:text-3xl lg:text-4xl font-black text-[#172B4D] dark:text-white leading-none tracking-tight">
               {resolvedCount}
             </div>
-            <p className="text-[11px] sm:text-xs text-[#718096] dark:text-[#94A3B8] font-semibold mt-1.5 leading-snug">
+            <p className="text-[10px] sm:text-xs text-[#718096] dark:text-[#94A3B8] font-semibold mt-1.5 leading-snug">
               Resolved
             </p>
           </div>

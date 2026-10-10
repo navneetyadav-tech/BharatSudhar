@@ -243,7 +243,7 @@ export function MobileCivicApp() {
               onOpenNotificationPane={() => setIsNotificationDrawerOpen(true)}
               onOpenProfile={() => setActiveTab('profile')}
               isFrameMode={isFrameMode}
-              onToggleFrameMode={() => setIsFrameMode((prev) => !prev)}
+              onToggleFrameMode={isMobileScreen ? undefined : () => setIsFrameMode((prev) => !prev)}
               unreadCount={unreadNotificationsCount}
               userName={userName}
             />

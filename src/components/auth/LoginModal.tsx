@@ -304,12 +304,12 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
       />
 
       {/* Modal Dialog Box */}
-      <div className="relative z-10 w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all border border-slate-200 my-auto animate-scale-in">
+      <div className="relative z-10 w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-[#0F172A] text-left shadow-2xl transition-all border border-slate-200 dark:border-slate-800 my-auto animate-scale-in">
         {/* Top Tiranga Ribbon Accent */}
         <div className="h-1.5 w-full bg-gradient-to-r from-saffron-500 via-white to-tirangaGreen-600" />
 
         {/* Modal Header */}
-        <div className="flex items-start justify-between p-4 sm:p-5 pb-3 border-b border-slate-100 bg-slate-50/80">
+        <div className="flex items-start justify-between p-4 sm:p-5 pb-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80">
           <div className="flex items-center gap-3">
             <div
               className={`w-10 h-10 rounded-xl text-white flex items-center justify-center shadow-xs shrink-0 ${
@@ -325,14 +325,14 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
               )}
             </div>
             <div>
-              <h3 id="login-modal-title" className="text-base sm:text-lg font-black text-slate-900 leading-tight">
+              <h3 id="login-modal-title" className="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-tight">
                 {activeType === 'authority'
                   ? 'Municipal Authority Portal'
                   : citizenTab === 'signup'
                   ? 'Citizen Registration'
                   : 'Citizen Portal Login'}
               </h3>
-              <p className="text-[11px] text-slate-500 font-medium">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {activeType === 'authority'
                   ? 'Government of Maharashtra • Civic Action Control'
                   : 'Report, track, and monitor public grievances'}
@@ -343,7 +343,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
           <button
             type="button"
             onClick={handleClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -353,13 +353,13 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
         {/* ======================================================== */}
         {/* UPPER SLIDING OPTION: CITIZEN vs AUTHORITY               */}
         {/* ======================================================== */}
-        <div className="px-5 pt-4 bg-white">
+        <div className="px-5 pt-4 bg-white dark:bg-[#0F172A]">
           <div className="relative p-1 bg-slate-200/90 dark:bg-slate-800 rounded-xl flex items-center shadow-inner">
             {/* Sliding Highlight Indicator */}
             <div
               className={`absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-lg transition-all duration-300 ease-out shadow-xs ${
                 activeType === 'citizen'
-                  ? 'left-1 bg-white text-slate-900'
+                  ? 'left-1 bg-white dark:bg-slate-700 text-slate-900 dark:text-white'
                   : 'left-[calc(50%)] bg-gradient-to-r from-chakra-900 to-chakra-950 text-white shadow-md'
               }`}
             />
@@ -374,8 +374,8 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
               }}
               className={`relative z-10 w-1/2 flex items-center justify-center gap-2 py-2 text-xs font-black transition-colors ${
                 activeType === 'citizen'
-                  ? 'text-chakra-950 font-extrabold'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'text-chakra-950 dark:text-white font-extrabold'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <User className="w-3.5 h-3.5" />
@@ -393,7 +393,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
               className={`relative z-10 w-1/2 flex items-center justify-center gap-2 py-2 text-xs font-black transition-colors ${
                 activeType === 'authority'
                   ? 'text-white font-extrabold'
-                  : 'text-slate-600 hover:text-slate-900'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Building className="w-3.5 h-3.5" />
@@ -410,7 +410,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
           {activeType === 'citizen' && (
             <div className="space-y-4 animate-fade-in">
               {/* Citizen Sub-tabs (Log In vs Sign Up) */}
-              <div className="grid grid-cols-2 p-1 bg-slate-100 rounded-xl border border-slate-200/80">
+              <div className="grid grid-cols-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-700">
                 <button
                   type="button"
                   onClick={() => {
@@ -420,11 +420,11 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                   }}
                   className={`flex items-center justify-center gap-2 py-1.5 text-xs font-bold rounded-lg transition-all ${
                     citizenTab === 'login'
-                      ? 'bg-white text-chakra-900 shadow-xs border border-slate-200'
-                      : 'text-slate-600 hover:text-slate-900'
+                      ? 'bg-white dark:bg-slate-900 text-chakra-900 dark:text-white shadow-xs border border-slate-200 dark:border-slate-700'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
-                  <LogIn className="w-3.5 h-3.5 text-chakra-800" />
+                  <LogIn className="w-3.5 h-3.5 text-chakra-800 dark:text-chakra-400" />
                   <span>Log In</span>
                 </button>
                 <button
@@ -437,7 +437,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                   className={`flex items-center justify-center gap-2 py-1.5 text-xs font-bold rounded-lg transition-all ${
                     citizenTab === 'signup'
                       ? 'bg-gradient-to-r from-saffron-500 to-saffron-600 text-white shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   <UserPlus className="w-3.5 h-3.5" />
@@ -495,7 +495,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                             setError(null);
                             setLoginCodeSent(false);
                           }}
-                          className="w-full pl-9 pr-20 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-chakra-500"
+                          className="w-full pl-9 pr-24 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-chakra-500"
                           required
                           autoFocus
                         />
@@ -503,7 +503,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                           type="button"
                           onClick={() => handleSendLoginCode()}
                           disabled={!loginEmail.trim() || !loginEmail.includes('@')}
-                          className="absolute right-1 px-2.5 py-1 bg-chakra-900 text-white rounded text-[11px] font-bold hover:bg-chakra-950 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1"
+                          className="absolute right-1 px-2.5 py-1 bg-chakra-900 text-white rounded text-[11px] font-bold hover:bg-chakra-950 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1 whitespace-nowrap shrink-0"
                         >
                           <Send className="w-2.5 h-2.5" />
                           <span>{loginCodeSent ? 'Resend' : 'Send Code'}</span>
@@ -626,7 +626,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                         </div>
                       </FormField>
 
-                      <div className="grid grid-cols-2 gap-2.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         <FormField label="District" required>
                           <select
                             value={district}
@@ -700,7 +700,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                               setError(null);
                               setSignupCodeSent(false);
                             }}
-                            className="w-full pl-9 pr-20 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm font-semibold text-slate-900"
+                            className="w-full pl-9 pr-24 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm font-semibold text-slate-900"
                             required
                             autoFocus
                           />
@@ -708,9 +708,10 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                             type="button"
                             onClick={() => handleSendSignupCode()}
                             disabled={!signupEmail.trim() || !signupEmail.includes('@')}
-                            className="absolute right-1 px-2 py-1 bg-chakra-900 text-white rounded text-[11px] font-bold"
+                            className="absolute right-1 px-2.5 py-1 bg-chakra-900 text-white rounded text-[11px] font-bold hover:bg-chakra-950 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1 whitespace-nowrap shrink-0"
                           >
-                            {signupCodeSent ? 'Resend' : 'Send Code'}
+                            <Send className="w-2.5 h-2.5" />
+                            <span>{signupCodeSent ? 'Resend' : 'Send Code'}</span>
                           </button>
                         </div>
                       </FormField>
@@ -742,14 +743,14 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                         />
                       </FormField>
 
-                      <div className="flex items-center gap-2 pt-1">
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1">
                         <Button
                           type="button"
                           variant="outline"
                           size="md"
                           onClick={() => setSignupStep(1)}
                           leftIcon={<ArrowLeft className="w-4 h-4" />}
-                          className="font-bold border-slate-300 text-xs"
+                          className="font-bold border-slate-300 text-xs justify-center sm:w-auto"
                         >
                           Back
                         </Button>
@@ -760,7 +761,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                           isFullWidth
                           isLoading={isLoading}
                           rightIcon={<ArrowRight className="w-4 h-4" />}
-                          className="font-bold shadow-xs text-xs sm:text-sm"
+                          className="font-bold shadow-xs text-xs sm:text-sm justify-center flex-1"
                         >
                           Create Account & Open Portal
                         </Button>
@@ -915,7 +916,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
         </div>
 
         {/* Footer Note */}
-        <div className="px-6 py-2.5 bg-slate-50 border-t border-slate-100 text-center text-[11px] text-slate-500 font-medium">
+        <div className="px-6 py-2.5 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 text-center text-[11px] text-slate-500 dark:text-slate-400 font-medium">
           {activeType === 'authority'
             ? 'Restricted Access for Authorized Maharashtra Civic Officers'
             : 'Once logged in, your session remains permanently active on this device.'}

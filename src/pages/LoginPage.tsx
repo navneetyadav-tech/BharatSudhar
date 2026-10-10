@@ -648,13 +648,13 @@ export function LoginPage() {
                             />
                           </FormField>
 
-                          <div className="flex items-center gap-3 pt-1">
+                          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
                             <Button
                               type="button"
                               variant="outline"
                               size="md"
                               onClick={() => setSignupStep(1)}
-                              className="font-bold border-[#DCE6F0] text-xs rounded-xl"
+                              className="font-bold border-[#DCE6F0] text-xs rounded-xl justify-center sm:w-auto"
                             >
                               Back
                             </Button>
@@ -665,7 +665,7 @@ export function LoginPage() {
                               isFullWidth
                               isLoading={isLoading}
                               rightIcon={<ArrowRight className="w-4 h-4" />}
-                              className="font-bold shadow-subtle text-sm rounded-xl"
+                              className="font-bold shadow-subtle text-sm rounded-xl justify-center flex-1"
                             >
                               Create Account & Open Portal
                             </Button>

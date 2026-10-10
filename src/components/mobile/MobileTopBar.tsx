@@ -30,16 +30,16 @@ export function MobileTopBar({
         <button
           type="button"
           onClick={onOpenOptionPane}
-          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group shrink-0"
+          className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group shrink-0"
           title="Open options menu"
           aria-label="Open options menu"
         >
-          <Menu className="w-5 h-5 stroke-[2.2] text-[#172B4D] dark:text-[#E2E8F0] group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA] transition-colors" />
+          <Menu className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2] text-[#172B4D] dark:text-[#E2E8F0] group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA] transition-colors" />
         </button>
 
         {/* Center: Clean Civic Status Pill (NO "Bharat Sudhar" as requested) */}
         <div className="flex-1 flex justify-center items-center min-w-0 px-1">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F4F8FC] dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] text-[11px] font-semibold text-[#718096] dark:text-[#94A3B8] shadow-xs truncate">
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-[#F4F8FC] dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-semibold text-[#718096] dark:text-[#94A3B8] shadow-xs truncate">
             <span className="w-2 h-2 rounded-full bg-[#22A982] animate-pulse shrink-0" />
             <span className="truncate hidden xs:inline">Civic Portal · </span>
             <span className="truncate">Ward 45-B</span>
@@ -53,14 +53,14 @@ export function MobileTopBar({
             <button
               type="button"
               onClick={onToggleFrameMode}
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group shrink-0"
               title={isFrameMode ? 'Switch to Desktop View' : 'Switch to Mobile Phone View'}
               aria-label={isFrameMode ? 'Switch to Desktop View' : 'Switch to Mobile Phone View'}
             >
               {isFrameMode ? (
-                <Monitor className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-[#3157A4] dark:text-[#60A5FA]" />
+                <Monitor className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] text-[#3157A4] dark:text-[#60A5FA]" />
               ) : (
-                <Smartphone className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-[#CA8A04] dark:text-[#FACC15]" />
+                <Smartphone className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] text-[#CA8A04] dark:text-[#FACC15]" />
               )}
             </button>
           )}
@@ -69,14 +69,14 @@ export function MobileTopBar({
           <button
             type="button"
             onClick={toggleTheme}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group shrink-0"
             title={isDark ? 'Shift to Day Mode' : 'Shift to Night Mode'}
             aria-label={isDark ? 'Shift to Day Mode' : 'Shift to Night Mode'}
           >
             {isDark ? (
-              <Sun className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-[#FACC15] hover:rotate-45 transition-transform" />
+              <Sun className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] text-[#FACC15] hover:rotate-45 transition-transform" />
             ) : (
-              <Moon className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-[#3157A4]" />
+              <Moon className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] text-[#3157A4]" />
             )}
           </button>
 
@@ -84,13 +84,13 @@ export function MobileTopBar({
           <button
             type="button"
             onClick={onOpenNotificationPane}
-            className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group"
+            className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white dark:bg-[#1E293B] border border-[#DCE6F0] dark:border-[#334155] hover:bg-[#F4F8FC] dark:hover:bg-[#334155] active:scale-95 flex items-center justify-center text-[#172B4D] dark:text-[#E2E8F0] transition-all shadow-subtle group shrink-0"
             title="Open notifications panel"
             aria-label="Open notifications panel"
           >
-            <Bell className="w-4 h-4 sm:w-[18px] sm:h-[18px] stroke-[2.1] text-[#172B4D] dark:text-[#E2E8F0] group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA] transition-colors" />
+            <Bell className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] stroke-[2.1] text-[#172B4D] dark:text-[#E2E8F0] group-hover:text-[#3157A4] dark:group-hover:text-[#60A5FA] transition-colors" />
             {unreadCount > 0 && (
-              <span className="absolute -top-1 -right-1 min-w-4 h-4 px-1 rounded-full bg-[#FACC15] text-[#172B4D] text-[10px] font-extrabold flex items-center justify-center ring-2 ring-white dark:ring-[#1E293B] shadow-xs">
+              <span className="absolute -top-1 -right-1 min-w-3.5 h-3.5 px-0.5 rounded-full bg-[#FACC15] text-[#172B4D] text-[9px] font-extrabold flex items-center justify-center ring-1.5 ring-white dark:ring-[#1E293B] shadow-xs">
                 {unreadCount}
               </span>
             )}
@@ -100,7 +100,7 @@ export function MobileTopBar({
           <button
             type="button"
             onClick={onOpenProfile}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#3157A4] to-[#4573ca] hover:from-[#264585] hover:to-[#3157A4] active:scale-95 text-white font-black text-xs flex items-center justify-center transition-all shadow-subtle border border-white/20 group shrink-0"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-tr from-[#3157A4] to-[#4573ca] hover:from-[#264585] hover:to-[#3157A4] active:scale-95 text-white font-black text-xs flex items-center justify-center transition-all shadow-subtle border border-white/20 group shrink-0"
             title={`Citizen Profile (${userName})`}
             aria-label="Open profile"
           >
